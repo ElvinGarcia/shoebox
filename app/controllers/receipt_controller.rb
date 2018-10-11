@@ -1,3 +1,3 @@
-class ReceiptController < ApplicationController
+class ReceiptsController < ApplicationController
     
 end
