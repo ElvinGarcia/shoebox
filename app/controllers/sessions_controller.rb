@@ -2,8 +2,10 @@ class SessionsController < ApplicationController
 
   def create
     byebug
-    redirect_to new_users_path
-    
+
+    #redirect to shoow page once the user is created 
+    #and added to the session hash
+    redirect_to users_path
   end
 
   private
