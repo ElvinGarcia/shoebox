@@ -1,11 +1,15 @@
 class SessionsController < ApplicationController
 
   def create
-    byebug
-
+    
+    @user = User.find_or_create_by(email: auth.info.email) do |user|
+      user.name = auth.info.name
+      user.email = auth.info.email
+    end
+    binding.pry
     #redirect to shoow page once the user is created 
     #and added to the session hash
-    redirect_to users_path
+
   end
 
   private
@@ -14,4 +18,5 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 
+  
 end
