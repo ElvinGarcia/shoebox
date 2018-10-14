@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_130007) do
+ActiveRecord::Schema.define(version: 2018_10_14_165657) do
 
   create_table "receipts", force: :cascade do |t|
     t.integer "amount"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2018_10_09_130007) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gdrive_token"
+    t.string "gdrive_refresh_token"
+    t.string "gdrive_auth_token"
   end
 
 end
