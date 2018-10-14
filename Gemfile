@@ -2,10 +2,14 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
-# 'Required for authentication via google'
+#github Oauth
 gem 'omniauth'
 gem 'omniauth-github'
+# google Oauth  
 gem 'omniauth-google-oauth2'
+gem 'google-api-client', '~> 0.11'
+gem 'google_drive'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -45,6 +49,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
   gem 'thin'
+  gem 'pry'
 end
 
 group :development do
