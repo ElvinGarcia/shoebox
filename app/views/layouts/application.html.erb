@@ -10,6 +10,8 @@
   </head>
 
   <body>
+      <%= flash.notice unless nil %>
+      <%= flash.alert unless nil %>
     <%= yield %>
   </body>
 </html>
