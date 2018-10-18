@@ -1,6 +1,6 @@
 <div class="submit_form">
 <h2>Login Form:</h2> 
-<%= form_tag "/users" do  %>
+<%= form_tag "/sessions/login" do  %>
 <%=label_tag 'user[email]', "Email:" %>
 <br>
 <%= text_field_tag 'user[email]' %>

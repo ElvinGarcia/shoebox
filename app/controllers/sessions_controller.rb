@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
 
-  def create
-    
-    @user = User.find_or_create_by(email: auth.info.email) do |user|
-      user.name = auth.info.name
-      user.email = auth.info.email
+  def login
+      @user = User.find_by(email: params[:user][:email])
+    if @user && @user.authenticate(params[:user][:password])
+      login_in(@user)
+      redirect_to @user
+    else
+      flash[:alert]= "Wrong User Name or/and Password"
+      redirect_to login_path                                                                                                                          
     end
-    binding.pry
-    #redirect to shoow page once the user is created 
-    #and added to the session hash
-
   end
 
   private

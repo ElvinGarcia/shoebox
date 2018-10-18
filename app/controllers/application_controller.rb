@@ -5,7 +5,4 @@ class ApplicationController < ActionController::Base
         #landing page
     end
 
-    def login
-        
-    end
 end

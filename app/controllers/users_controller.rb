@@ -8,6 +8,9 @@ class UsersController < ApplicationController
         binding.pry
     end
 
+    def login
+        
+    end
     def create
         @user = User.find_by(email:params[:user][:email])
 
@@ -18,7 +21,6 @@ class UsersController < ApplicationController
             flash[:alert]= "Invalid User name / password combination"
             redirect_to login_path
         end
-        
     end
 
     def edit
