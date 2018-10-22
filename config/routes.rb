@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/auth/:provider/callback' => 'sessions#create'
   post '/auth/:provider/callback' => 'sessions#create', as: :session_callback
+  delete '/logout', to: 'sessions#logout'
+  
   get '/login', to: 'users#login'
   post 'sessions/login', to: 'sessions#login'
   resource :users

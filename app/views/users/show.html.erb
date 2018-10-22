@@ -1,7 +1,20 @@
 #displays the users bio and displays a list of actions 
-# Edit the user information
+
+<h2>Welcome <%= @user.name %></h2>
+##-------Bio_info-----edit_option-----##
+<ul>    <h3>Profile information: </h3>
+<li><%=@user.name%>  </li>
+<li><%=@user.email%></li>
+<li><%=@user.admin%></li>
+</ul>
+
+##--action_menu---------------##
 # Create a receipt
 # Delete a receipt
 # Edit a receipt
 # Refer a friend
 #delete the account
+    
+
+##--------receipt_pics---------##
+

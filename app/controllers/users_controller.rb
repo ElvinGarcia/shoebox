@@ -5,33 +5,41 @@ class UsersController < ApplicationController
     end
 
     def show
-        binding.pry
+      if  logged_in? 
+         @user = current_user 
+      else
+         flash[:alert] = "You must be Logged in Order to View this Page"
+         redirect_to root_path
+        end
     end
 
     def login
-        
+      redirect_to users_path if logged_in?
     end
+    
     def create
         @user = User.find_by(email:params[:user][:email])
 
         if @user && @user.authenticate(params[:user][:password])
             log_in(@user)
             render :show
+        elsif @user
+            flash[:alert]= "User name is already taken"
+            redirect_to new_users_path
         else
-            flash[:alert]= "Invalid User name / password combination"
-            redirect_to login_path
+            @user = User.create(strong_params)
+            log_in @user 
+            render :show
         end
     end
 
     def edit
-        @user = #find the user 
-        #send the user to get edited
+        @user = current_user
         redirect_to edit_users(@user)
     end
 
     def update
-        #update the users attributes
-        #redirect to the show page
+        @user = current_users
         redirect_to users_path(@user)
     end
 

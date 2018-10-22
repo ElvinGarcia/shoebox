@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
       include SessionsHelper
 
     def index
-        #landing page
+        redirect_to users_path if logged_in?
     end
 
 end
