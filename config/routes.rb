@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#logout'
   
   get '/login', to: 'users#login'
+  
   post 'sessions/login', to: 'sessions#login'
   resource :users
-  resource :stores do
-    resources :receipts
-  end
+
+  get "receipt/:user/:pic_id", to: "receipts#show" ,as: "receipt"
+  delete "receipt/:pic_id", to: "receipts#delete" , as:"receipt_delete"
+
 
   root to: "application#index"
   
