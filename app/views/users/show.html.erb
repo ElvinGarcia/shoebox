@@ -1,20 +1,30 @@
-#displays the users bio and displays a list of actions 
 
-<h2>Welcome <%= @user.name %></h2>
-##-------Bio_info-----edit_option-----##
-<ul>    <h3>Profile information: </h3>
-<li><%=@user.name%>  </li>
-<li><%=@user.email%></li>
-<li><%=@user.admin%></li>
+<h2>Welcome <%= current_user.name %></h2>
+
+<br>
+<%# #avatar is being required %>
+<%= link_to image_tag(current_user.avatar.variant(resize: "100x100")) , edit_users_path %>
+
+<br>
+<br>
+<h3>Profile information: </h3>
+<ul>
+<li>Name:  <%=current_user.name%>  </li>
+<li>Email: <%=current_user.email%></li>
+<li>admin?: <%=current_user.admin%></li>
+</ul>
+<br>
+<br>
+<h3>Action Menu </h3>
+<ul>
+<li><%= link_to 'Create a Receipt', edit_users_path %></li>
+<li> <%= link_to 'Delete Account', users_path, method: :delete %> </li>
 </ul>
 
-##--action_menu---------------##
-# Create a receipt
-# Delete a receipt
-# Edit a receipt
-# Refer a friend
-#delete the account
-    
-
-##--------receipt_pics---------##
+<br>    
+<br>    
+<h3>Receipts :</h3>
+    <% current_user.pics.each do |pic| %>
+    <%= link_to image_tag(pic.variant(resize: "100x100")) , receipt_path(current_user.id , pic.id)   %>
+    <% end %>
 
