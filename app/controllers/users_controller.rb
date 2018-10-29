@@ -34,19 +34,25 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = current_user
-        redirect_to edit_users(@user)
+      @user = current_user
     end
 
     def update
-        @user = current_users
-        redirect_to users_path(@user)
+        current_user.update(strong_params)
+        redirect_to users_path
+    end
+
+    def destroy
+        binding.pry
+        current_user.destroy
+        log_out
+        redirect_to root_path
     end
 
     private
 
     def strong_params
-        params.require(:user).permit([:name,:email,:password,:admin])
+        params.require(:user).permit(:name,:email,:password,:admin,:avatar, pics: [])
     end
     
 end
