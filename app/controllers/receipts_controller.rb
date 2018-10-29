@@ -15,5 +15,15 @@ class ReceiptsController < ApplicationController
         #redirects to the receipt shwo page
         redirect_to stores_receipt(@receipts)
     end
+
+    def show
+        @pic = current_pic
+    end
     
+    def delete
+         @pic = current_pic
+         @pic.purge
+         redirect_to root_path
+    end
+
 end
