@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "receipt/:user/:pic_id", to: "receipts#show" ,as: "receipt"
   delete "receipt/:pic_id", to: "receipts#delete" , as:"receipt_delete"
 
+  get '/contact', to:"application#contact", as: "contact"
+  get '/about',   to:"application#about",   as: "about"
 
   root to: "application#index"
   
