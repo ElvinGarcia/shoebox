@@ -14,7 +14,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.text :policy
     end
 
-    create_table :receipts do |t|
+    create_table :posts do |t|
       t.integer :amount
       t.string  :date
       t.integer :user_id

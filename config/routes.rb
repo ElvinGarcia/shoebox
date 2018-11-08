@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post 'sessions/login', to: 'sessions#login'
   resource :users
 
-  get "receipt/:user/:pic_id", to: "receipts#show" ,as: "receipt"
-  delete "receipt/:pic_id", to: "receipts#delete" , as:"receipt_delete"
+  get "post/:user/:pic_id", to: "posts#show" ,as: "post"
+  delete "post/:pic_id", to: "posts#delete" , as:"post_delete"
 
   get '/contact', to:"application#contact", as: "contact"
   get '/about',   to:"application#about",   as: "about"

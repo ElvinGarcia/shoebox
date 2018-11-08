@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_190604) do
+ActiveRecord::Schema.define(version: 2018_11_08_023118) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,16 +33,9 @@ ActiveRecord::Schema.define(version: 2018_11_07_190604) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "receipts", force: :cascade do |t|
-    t.integer "amount"
+  create_table "posts", force: :cascade do |t|
     t.string "date"
     t.integer "user_id"
-    t.integer "store_id"
-  end
-
-  create_table "stores", force: :cascade do |t|
-    t.string "name"
-    t.text "policy"
   end
 
   create_table "users", force: :cascade do |t|

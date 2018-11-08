@@ -1,19 +1,19 @@
-class ReceiptsController < ApplicationController
+class postsController < ApplicationController
 
     def index
-        @receipts = Receipt.all
+        @posts = Post.all
     end
 
     def new
-        @receipt = Receipt.new
+        @Post = Post.new
     end
 
     def create
-        #validates the receipt info
-        #sends it to the receipt model for validation
+        #validates the post info
+        #sends it to the post model for validation
         #the model sends it to the cloud for storage
-        #redirects to the receipt shwo page
-        redirect_to stores_receipt(@receipts)
+        #redirects to the post shwo page
+        binding.pry
     end
 
     def show

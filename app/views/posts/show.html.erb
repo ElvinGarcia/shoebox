@@ -2,7 +2,7 @@
 <%= image_tag(@pic.variant(resize: "10%")) %>
 
 <ul>
-<li><%= link_to 'Delete', receipt_delete_path(@pic.id), method: :delete %></li>
+<li><%= link_to 'Delete', post_delete_path(@pic.id), method: :delete %></li>
 <li>option 1</li>
 <li>option 2</li>
 <li>option 3</li>
