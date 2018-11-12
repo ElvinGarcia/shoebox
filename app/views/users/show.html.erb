@@ -1,30 +1,33 @@
 
 <h2>Welcome <%= current_user.name %></h2>
 
-<br>
-<%# #avatar is being required %>
-<%= link_to image_tag(current_user.avatar.variant(resize: "100x100")) , edit_users_path %>
+<div class="row user-info">
+    <aside class="col-md-4">
+        <h3>Profile information: </h3>
+        Gravatar can't be display on development mode
+    <%# link_to image_tag gravatar_for(current_user) %>
+    <%#link_to image_tag(current_user.avatar.variant(resize: "100x100")) , edit_users_path %>
+    <ul>
+        <li>Name:  <%=current_user.name%>  </li>
+        <li>Email: <%=current_user.email%></li>
+        <li>admin?: <%=current_user.admin%></li>
+    </ul>
+    </aside>
+</div>
 
-<br>
-<br>
-<h3>Profile information: </h3>
-<ul>
-<li>Name:  <%=current_user.name%>  </li>
-<li>Email: <%=current_user.email%></li>
-<li>admin?: <%=current_user.admin%></li>
-</ul>
-<br>
-<br>
+<div class="action-menu">
 <h3>Action Menu </h3>
 <ul>
-<li><%= link_to 'Create a Post', edit_users_path %></li>
+<li><%# link_to 'Create a Post', edit_users_path %></li>
 <li> <%= link_to 'Delete Account', users_path, method: :delete %> </li>
 </ul>
-
-<br>    
-<br>    
+</div>
+    
+<div class="main">    
 <h3>Posts :</h3>
     <% current_user.pics.each do |pic| %>
     <%= link_to image_tag(pic.variant(resize: "100x100")) , post_path(current_user.id , pic.id)   %>
     <% end %>
+</div>
 
+    

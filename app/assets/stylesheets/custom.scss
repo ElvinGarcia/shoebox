@@ -1,8 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* variables */
+/* variables & misc ƒ*/
 $gray-medium-light: #eaeaea;
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
 
 /* header */
 
@@ -22,11 +33,6 @@ $gray-medium-light: #eaeaea;
   text-decoration: none;
 }
 
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
 
 h1 {
   font-size: 3em;
@@ -72,27 +78,70 @@ textarea {
   /* footer */
 
 footer {
+  right: 0px;
+  bottom: 0px;
+  left:0px;
+  text-align: center;
+  position:absolute;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
 
- a {
-  color: $gray;
-& a:hover {
-  color: $gray-darker;
+  a {
+    color: $gray;
+  & a:hover {
+    color: $gray-darker;
+      }
+    }
+  small {
+    float: left;
+    margin-left: 5px; 
+  }
+
+  ul {
+    // float: right;
+    list-style: none;
+      li {
+        display: inline;
+        margin: 10px;
+    // float: left;
+    // margin-left: 15px;
     }
   }
- small {
-  float: left;
 }
 
- ul {
-  float: right;
-  list-style: none;
-    li {
-  float: left;
-  margin-left: 15px;
-  }
+#notice_alerts{
+  clear: both;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* aside */
+.user-info{  
+ border:solid $gray-medium-light;
+ position: relative;
+ float:right;
  }
+
+
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+
+/* misc not not part of production */
+.debug_dump{
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
