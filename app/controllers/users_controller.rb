@@ -43,7 +43,6 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        binding.pry
         current_user.destroy
         log_out
         redirect_to root_path
