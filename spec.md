@@ -22,6 +22,8 @@ Confirm:
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
 
+
+------------------------------------------------------------------------------------
 Student has many Categories  =>             <- Categories
                                 <-categories->
 Student has many Teachers    => <-categories-> <= Teacher has many students
@@ -78,3 +80,21 @@ professor has:
         an Admin can delete students & professors account 
         an Admin can edit the Dashboard
         an Admin can upload a picture
+
+--------------------------------------------------------------------------
+
+User, Post, Tags, Comments
+User have_many Post
+Post belongs to User
+Post belongs to Tags
+Tags has_many Post
+User have_many Tags Through Post
+Tags has_many User through Post
+User have_many comments
+comment belongs to a post
+post has_many comments
+comment belongs to User through post
+
+--------------------------------------------------------------------------
+capitalize eveny where the user name appears eg. elvin to Elvin
+
