@@ -18,18 +18,13 @@ class UsersController < ApplicationController
     end
     
     def create
-        @user = User.find_by(email:params[:user][:email])
-
-        if @user && @user.authenticate(params[:user][:password])
-            log_in(@user)
-            render :show
-        elsif @user
-            flash[:alert]= "User name is already taken"
-            redirect_to new_users_path
-        else
-            @user = User.create(strong_params)
+         @user = User.create(strong_params)
+        if  @user.save
             log_in @user 
+            flash[:notice]= "You Been Succesfully Registered"
             render :show
+        else
+          render :new
         end
     end
 
@@ -51,7 +46,7 @@ class UsersController < ApplicationController
     private
 
     def strong_params
-        params.require(:user).permit(:name,:email,:password,:admin,:avatar, pics: [])
+        params.require(:user).permit(:name,:email,:password,:password_confirmation,:admin,:avatar, pics: [])
     end
     
 end

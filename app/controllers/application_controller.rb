@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
       include PostsHelper
 
     def index
-        redirect_to users_path if logged_in?
+        redirect_to user_path(current_user) if logged_in?
     end
 
 end
