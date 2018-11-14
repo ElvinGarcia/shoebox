@@ -4,8 +4,8 @@ class User < ApplicationRecord
   #converts email to downcase  before saving it inorder to prevent inconsistency 
   before_save {email.downcase!}
   # standard validations 
-  validates :name, presence: true, length: {maximum: 10}
-  validates :password, presence: true, length: {minimum: 4}
+  validates :name, presence: true, length: {maximum: 5}
+  validates :password, presence: true, length: {minimum: 5}
   validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   #bcrypt encryption for the usr password
   has_secure_password
