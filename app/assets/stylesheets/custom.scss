@@ -111,12 +111,7 @@ footer {
   }
 }
 
-#notice_alerts{
-  clear: both;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
+
 
 /* aside */
 .user-info{  
@@ -145,3 +140,5 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
+/* notifications */
+
