@@ -1,15 +1,16 @@
 <div class="submit_form center">
-<h2>Login Form:</h2> 
-<%= form_tag "/sessions/login" do  %>
-<%=label_tag 'user[email]', "Email:" %>
-<br>
-<%= text_field_tag 'user[email]' %>
-<br>
-<%=label_tag 'user[password]', "Password" %>
-<br>
-<%= password_field_tag 'user[password]' %>
-<br>
-<%= submit_tag :submit%>
-<% end %>
-
+    <h2>Login Form:</h2> 
+    <%= form_tag "/sessions/login" do  %>
+    <%=label_tag 'user[email]', "Email:" %>
+    <br>
+    <%= text_field_tag 'user[email]'," ", placeholder:"email" %>
+    <br>
+    <%=label_tag 'user[password]', "Password" %>
+    <br>
+    <%= password_field_tag 'user[password]' %>
+    <br>
+    <%=label_tag :remember  %>
+    <%=check_box :remember, class: 'form-control' %>
+    <%= submit_tag :submit, class: "btn btn-primary"%>
+    <% end %>
 </div>
