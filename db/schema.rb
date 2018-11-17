@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_023118) do
+ActiveRecord::Schema.define(version: 2018_11_17_202153) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2018_11_08_023118) do
     t.string "gdrive_token"
     t.string "gdrive_refresh_token"
     t.string "gdrive_auth_token"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
