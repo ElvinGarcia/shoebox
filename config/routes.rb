@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "static_pages#index"
+  get '/auth/:provider/callback' => 'sessions#login'
   get '/contact', to:"static_pages#contact", as: "contact"
   get '/about',   to:"static_pages#about",   as: "about"
-  get '/login', to: 'sessions#login'
-  post '/login', to: 'sessions#create'
+  post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'
   resources :users
+  get '/login', to: 'users#login'
   
-  get '/auth/:provider/callback' => 'sessions#login'
+  
+  
   
   
   

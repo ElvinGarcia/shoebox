@@ -139,10 +139,6 @@ GEM
     omniauth-github (1.3.0)
       omniauth (~> 1.5)
       omniauth-oauth2 (>= 1.4.0, < 2.0)
-    omniauth-google-oauth2 (0.5.3)
-      jwt (>= 1.5)
-      omniauth (>= 1.1.1)
-      omniauth-oauth2 (>= 1.5)
     omniauth-oauth2 (1.5.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
@@ -271,7 +267,6 @@ DEPENDENCIES
   mini_magick
   omniauth
   omniauth-github
-  omniauth-google-oauth2
   pry
   puma (~> 3.11)
   rails (~> 5.2.1)

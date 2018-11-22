@@ -1,7 +1,14 @@
 class SessionsController < ApplicationController
 
   def login
-    omin_auth(auth)
+    User.omin_auth(auth: auth, params: params )
+    # User.omin_auth(auth)
+    # if auth
+    #   User.omin_auth(auth)
+    # else
+    #   User.omin_auth(params)
+    # end
+    
 
   end
 
