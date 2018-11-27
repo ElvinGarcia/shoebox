@@ -10,6 +10,9 @@ module SessionsHelper
     def current_user
         if session[:user_id]
             @current_user ||= User.find(session[:user_id])
+        else
+            #retrive the user_id from the cookie and validate the remember_digest
+            #and then set the current_user
         end
     end
 
@@ -22,6 +25,12 @@ module SessionsHelper
     def log_out
         session.delete(:user_id)
         current_user = nil
+    end
+
+    def remember(user)
+        user.remember
+        user.cookies.permanent.signed[:user_id]= user.id
+        user.cookies.permanent[:remember_token] = user.remember_token
     end
 
 end

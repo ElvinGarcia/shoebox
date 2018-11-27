@@ -8,9 +8,8 @@ class SessionsController < ApplicationController
     else
        @user = User.find_by(email: params[:user][:email])
       if @user && @user.authenticate(params[:user][:password])
-        binding.pry
+        log_in(@user) if params[:user][:remember]
         remember(@user)
-        log_in(@user)
         #verifies via params that the user selected to be remember then runs 
         # remember user instant method
         
