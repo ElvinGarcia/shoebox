@@ -6,12 +6,17 @@ class SessionsController < ApplicationController
         log_in(@user)
         redirect_to user_path(@user), notice: "You are Logged In"       
     else
-      @user = User.find_by(email: params[:user][:email].strip.downcase)
+       @user = User.find_by(email: params[:user][:email])
       if @user && @user.authenticate(params[:user][:password])
+        binding.pry
+        remember(@user)
         log_in(@user)
+        #verifies via params that the user selected to be remember then runs 
+        # remember user instant method
+        
         redirect_to user_path(@user), notice: "You are Logged In"       
       else
-        flash[:alert]="The Wrong User Name and/or Password Combination was incorrect"
+        flash[:alert]="Invalid email/password combination"
         redirect_to login_path
       end
     end
