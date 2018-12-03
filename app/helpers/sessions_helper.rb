@@ -8,29 +8,41 @@ module SessionsHelper
 
     #returns the current user
     def current_user
-        if session[:user_id]
+        if ( user_id = session[:user_id] )
             @current_user ||= User.find(session[:user_id])
-        else
-            #retrive the user_id from the cookie and validate the remember_digest
-            #and then set the current_user
+        elsif (user_id = cookies.signed[:user_id])
+            user = User.find_by(id: user_id)
+           if user && user.authenticated?(cookies[:remember_token])
+            log_in user
+            @current_user = user
+           end
         end
     end
 
     # Returns true if the user is logged in, false otherwise.
-  def logged_in?
+    def logged_in?
     !current_user.nil?
-  end
-
-    #logout the user and sets @user to nil
-    def log_out
-        session.delete(:user_id)
-        current_user = nil
     end
 
     def remember(user)
         user.remember
-        user.cookies.permanent.signed[:user_id]= user.id
-        user.cookies.permanent[:remember_token] = user.remember_token
+        cookies.permanent.signed[:user_id]= user.id
+        cookies.permanent[:remember_token] = user.remember_token
     end
+
+    def forget
+        current_user.forget #sets the remember digest to nil
+        cookies.delete(:user_id)
+        cookies.delete(:remember_token)
+    end
+
+    #logout the user and sets @user to nil
+    def log_out
+        forget #undoes the creation of cookies creation
+        session.delete(:user_id)
+        current_user = nil
+    end
+
+    
 
 end

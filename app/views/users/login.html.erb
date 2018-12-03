@@ -9,7 +9,7 @@
     <br>
     <%= password_field_tag 'user[password]',"", placeholder:"passsword"  %>
     <br>
-    <%=label_tag :remember %>
+    <%=label_tag :remember, "Stay signed in:" %>
     <%=check_box 'user','remember' %>
     <%= submit_tag :submit, class: "btn btn-primary"%>
     <% end %>
