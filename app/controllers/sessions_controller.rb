@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
 
   def login
     if auth
-      @user = User.find_by(email: auth[:info][:email].downcase)
+      @user = User.find_or_create_by(email: auth[:info][:email].downcase) do |user|
+        user.name = auth[:info][:name]
+        user.email = auth[:info][:email].downcase
+        user.password = SecureRandom.base64
+      end
         log_in(@user)
         redirect_to user_path(@user), notice: "You are Logged In"       
     else
