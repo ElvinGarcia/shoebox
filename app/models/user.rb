@@ -1,21 +1,26 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  #validates the email submitted format
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  #converts email to downcase  before saving it inorder to prevent inconsistency 
-  before_save {email.downcase!}
-  # standard validations 
-  validates :name, presence: true, length: {minimum: 5}
-  validates :password, presence: true, length: {minimum: 5}
-  validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
-  #bcrypt encryption for the usr password
-  has_secure_password
-  #active_storage requirements
-  has_one_attached :avatar
+  has_one_attached :avatar #active_storage requirement
   has_many_attached :pics
   #association methods
   #has_many 
   #has_many 
+
+
+  #validates the email submitted format
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  
+  #converts email to downcase  before saving it inorder to prevent inconsistency 
+  before_save {email.downcase!}
+  
+  # standard validations 
+  validates :name, presence: true, length: {minimum: 5}
+  validates :password, presence: true, length: {minimum: 5}
+  validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+  
+  #bcrypt encryption for the usr password
+  has_secure_password
+  
 
 class << self
   # Returns the hash digest of the given string.
