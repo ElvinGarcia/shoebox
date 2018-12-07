@@ -2,3 +2,10 @@
 #uploads image of the post (optional)
 #sends it to the controller for processing 
 #form as a hidden field to identify the user
+
+<%= form_for @post, do |f| %>
+<%= f.label :date  %>
+<%= f.label :content %>
+<%=  %>
+  
+<% end %>
