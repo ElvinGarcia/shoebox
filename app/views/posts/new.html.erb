@@ -1,16 +1,3 @@
-#Fills in post information
-#uploads image of the post (optional)
-#sends it to the controller for processing 
-#form as a hidden field to identify the user
 
-<%= form_for @post do |f| %>
-<%= f.label :date  %>
-<%= f.date_field :date ,class: 'form-control' %>
-<br>
-<%= f.label :description %>
-<%= f.text_area :description, class: 'form-control' %>
-<%= f.submit %>
-<% end %>
-
-#add image upload tag
-#refer to rails video online
+    
+<%= render "form" %>
