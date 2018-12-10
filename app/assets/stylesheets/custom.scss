@@ -140,5 +140,30 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
-/* notifications */
 
+
+/* forms */
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    margin: .4rem;
+}
+
+/* profile post preview */
+.card{
+  border:solid $gray-medium-light;
+  position: relative;
+  display: inline-block;
+  padding: 22px;
+  width: auto;
+  float: left;
+  margin-left: 1em;
+}

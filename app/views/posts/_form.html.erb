@@ -1,17 +1,20 @@
+    <div class= "row">
+     <div class="col-md-6 col-md-offset-3 ">
+          <%= form_for @post do |f| %>
+          <fieldset>
+          <legend>Create a Post</legend>
 
-<div class="field">
-
-<%= form_for @post do |f| %>
-<%= f.label :date  %>
-<%= f.date_field :date, class: 'form-control' %>
-<br>
-<%= f.label :image %>
-<%= f.file_field :image, multiple: true %>
-<br>
-<%= f.label :description %>
-<%= f.text_area :description, class: 'form-control' %>
-<%= f.submit %>
-<% end %>
-
-</div>
-
+           <%= f.label :date  %>
+           <%= f.date_field :date, class: 'form-control' %>
+        
+           <%= f.label :description %>
+           <%= f.text_area :description, class: 'form-control' %>
+        
+           <%= f.label :images %>
+           <%= f.file_field :images, multiple: true %>
+           <br>
+           <%= f.submit %>
+           <% end %>
+            </fieldset>
+      </div>
+    </div>

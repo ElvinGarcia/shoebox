@@ -1,8 +1,16 @@
 
-<div>
-    <ul>
-        <li>
-            <a href="">img</a>
-        </li>
-    </ul>
-</div>
+
+ <% unless current_user.posts == nil%>
+   <% current_user.posts.each do |post| %>
+    <div class = "card" style="width: 18rem;">
+     <div class="card-body">
+      <h3 class="card-title"> <%= post.date %> </h3>
+      <p class="card-text"> <%= post.description %> </p> 
+        </div>   
+       <% post.images.each do |image| %>
+       <%= link_to image_tag(image.variant(resize: "100x100")), current_user , class: "card-img" %>
+    </div>
+   <% end %>
+  <% end %>
+ <% end %>
+

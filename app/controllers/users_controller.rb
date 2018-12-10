@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     end
     
     def create
-         @user = User.create(strong_params)
+         @user = User.create(user_strong_params)
         if  @user.save
             log_in @user 
             flash[:notice]= "You Been Succesfully Registered"
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        current_user.update(strong_params)
+        current_user.update(user_strong_params)
         redirect_to users_path
     end
 
@@ -43,10 +43,10 @@ class UsersController < ApplicationController
         redirect_to root_path
     end
 
-    private
+    private     
 
-    def strong_params
-        params.require(:user).permit(:name,:email,:password,:password_confirmation,:admin,:avatar, pics: [])
+    def user_strong_params
+        params.require(:user).permit(:name,:email,:password,:password_confirmation,:admin)
     end
     
 end

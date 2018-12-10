@@ -9,11 +9,8 @@ class PostsController < ApplicationController
     end
 
     def create
-        #validates the post info
-        #sends it to the post model for validation
-        #the model sends it to the cloud for storage
-        #redirects to the post shwo page
-        binding.pry
+        current_user.posts.create(post_strong_params)
+        redirect_to users_path
     end
 
     def show
@@ -24,6 +21,12 @@ class PostsController < ApplicationController
          @pic = current_pic
          @pic.purge
          redirect_to root_path
+    end
+
+    private
+
+    def post_strong_params
+         params.require(:post).permit(:date,:description,images:[])
     end
 
 end
