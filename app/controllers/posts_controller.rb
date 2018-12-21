@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     end
 
     def show
-        @pic = current_pic
+        @post = current_user.posts.find(params[:id])
     end
     
     def delete

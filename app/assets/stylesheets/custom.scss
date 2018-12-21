@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+
 /* variables & misc ƒ*/
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
@@ -14,25 +16,6 @@ $gray-medium-light: #eaeaea;
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
-
-/* header */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-}
-
-#logo:hover {
-  color: white;
-  text-decoration: none;
-}
-
 
 h1 {
   font-size: 3em;
@@ -56,17 +39,39 @@ p {
 }
 
 
-body {
-    padding-top: 60px;
-}
 
-section {
-    overflow: auto;
-}
+/* header */
+
+// #logo {
+//   float: left;
+//   margin-right: 10px;
+//   font-size: 1.7em;
+//   color: white;
+//   text-transform: uppercase;
+//   letter-spacing: -1px;
+//   padding-top: 9px;
+//   font-weight: bold;
+//   }
+
+// #logo:hover {
+//   color: white;
+//   text-decoration: none;
+// }
+
+
+
+
+// body {
+//   padding-top: 60px;
+//   }
+
+// section {
+//     overflow: auto;
+//     }
 
 textarea {
     resize: vertical;
-}
+    }
 
 .center {
     text-align: center;
@@ -78,59 +83,32 @@ textarea {
   /* footer */
 
 footer {
+  clear:both;
+  bottom: 0;
+  
+  small {
+    float: left;
+    margin-left: 5px; 
+    }
+  ul {
   right: 0px;
   bottom: 0px;
   left:0px;
   text-align: center;
-  position:absolute;
   margin-top: 45px;
-  padding-top: 5px;
+  // padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
-
-  a {
-    color: $gray;
-  & a:hover {
-    color: $gray-darker;
-      }
-    }
-  small {
-    float: left;
-    margin-left: 5px; 
-  }
-
-  ul {
+  clear:both;
+   @include box_sizing;
+  
     // float: right;
     list-style: none;
       li {
-        display: inline;
-        margin: 10px;
-    // float: left;
-    // margin-left: 15px;
+        
     }
   }
 }
-
-
-
-/* aside */
-.user-info{  
- border:solid $gray-medium-light;
- position: relative;
- float:right;
- }
-
-
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
 
 /* misc not not part of production */
 .debug_dump{
@@ -140,6 +118,15 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
+
+
+/* aside */
+.user-info{  
+ border:solid $gray-medium-light;
+ position: relative;
+ float:right;
+ }
+
 
 
 /* forms */
@@ -157,13 +144,33 @@ input {
     margin: .4rem;
 }
 
-/* profile post preview */
 .card{
-  border:solid $gray-medium-light;
-  position: relative;
-  display: inline-block;
-  padding: 22px;
-  width: auto;
-  float: left;
-  margin-left: 1em;
+  margin: 2em;
+  padding: 1em;
+  width:65%;
+  height: 100%;
+  border: solid silver 2px;  
+ .card-img{
+   display:inline-block;
+   border:black solid 2px;
+ }
 }
+ .show-post{
+   float: left;
+   margin-top: 5em;
+   width: 75%;
+   height: 100%;
+   padding: 2em;
+   border: silver solid;
+ }
+
+ .show-aside{   
+   float: right;
+   margin-top: 5em;
+   padding:5px;
+   border: silver solid;
+   min-height: auto;
+   li{
+     display: block;
+   }
+ }
