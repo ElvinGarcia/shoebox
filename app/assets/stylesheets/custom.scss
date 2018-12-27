@@ -85,7 +85,7 @@ textarea {
 footer {
   clear:both;
   bottom: 0;
-  
+
   small {
     float: left;
     margin-left: 5px; 
@@ -95,8 +95,7 @@ footer {
   bottom: 0px;
   left:0px;
   text-align: center;
-  margin-top: 45px;
-  // padding-top: 5px;
+  margin-bottom: 0;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
   clear:both;
@@ -104,9 +103,6 @@ footer {
   
     // float: right;
     list-style: none;
-      li {
-        
-    }
   }
 }
 
@@ -155,18 +151,30 @@ input {
    border:black solid 2px;
  }
 }
+
  .show-post{
-   float: left;
-   margin-top: 5em;
+   float:left;
+   margin: 5em 0 5em;
    width: 75%;
    height: 100%;
    padding: 2em;
    border: silver solid;
+    .img-box{
+      display:inline-block;
+      float:right;
+      border:black solid 1px;
+      margin-left:5px;
+      padding:1px;
+      img{
+        display:inline-block;
+        border:black solid;
+      }
+   }
  }
 
  .show-aside{   
    float: right;
-   margin-top: 5em;
+   margin: 5em 0 5em;
    padding:5px;
    border: silver solid;
    min-height: auto;
