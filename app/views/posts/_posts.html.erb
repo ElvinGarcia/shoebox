@@ -1,16 +1,13 @@
 
-
- <% unless current_user.posts == nil%>
-   <% current_user.posts.each do |post| %>
-    <div class = "card" >
-     <div class="card-body">
-      <h3 class="card-title"> <%= post.date %> </h3>
-      <p class="card-text"> <%= post.description %> </p> 
-       <% post.images.each do |image| %>
-       <%= link_to image_tag(image.variant(resize: "100x100")), post_path(image) , class: "card-img" %>   
-        <% end %>
-      </div>
-    </div>
-  <% end %>
- <% end %>
+<% current_user.posts.each do |post| %>
+  <div class="card-body">
+    <h3 class="card-title"> <%= post.date %> </h3>
+    <p class="card-text"> <%= post.description %> </p> 
+    <%if post.images.attached?  %>
+      <% post.images.each do |image| %>
+      <%= link_to image_tag(image.variant(resize: "100x100")), post_path(post.id) , class: "card-img" %> 
+    <% end%>
+    <% end%>
+  </div>
+<% end%>
 

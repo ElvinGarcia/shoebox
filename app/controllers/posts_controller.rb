@@ -16,7 +16,23 @@ class PostsController < ApplicationController
     def show
         @post = current_user.posts.find(params[:id])
     end
-    
+
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+        @post = Post.find(params[:id])
+        @post.update(post_strong_params)
+        if params[:post][:images_to_delete]
+            params[:post][:images_to_delete].each do |id|
+                image = @post.images.find(id)
+                image.purge_later
+            end
+        end
+        redirect_to 'show'
+    end
+
     def delete
          @pic = current_pic
          @pic.purge
