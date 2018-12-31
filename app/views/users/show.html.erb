@@ -4,9 +4,7 @@
 <div class="row user-info">
     <aside class="col-md-4">
         <h3>Profile information: </h3>
-        Gravatar can't be display on development mode
-    <%# link_to image_tag gravatar_for(current_user) %>
-    <%#link_to image_tag(current_user.avatar.variant(resize: "100x100")) , edit_users_path %>
+  
     <ul>
         <li>Name:  <%=current_user.name%>  </li>
         <li>Email: <%=current_user.email%></li>

@@ -1,4 +1,10 @@
-need to complete the following actions ffrom the POST VIEW page
-Edit Post "no routes"
-Delete Post "no routes"
-Sort by Date "not implemented"
+
+> Need to complete the following actions from the POST VIEW page
+
+
+* [] Delete Post "no routes"
+
+* [] Sort by Date "not implemented"
+
+
+- [] Mercury
