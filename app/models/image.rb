@@ -1,3 +1,3 @@
-class Image < ApplicationRecord
-    belongs_to :post        
-end
+# class Image < ApplicationRecord
+#     belongs_to :post        
+# end

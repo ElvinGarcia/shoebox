@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   #has_one_attached :avatar #active_storage requirement
-  has_many :posts
+  has_many :posts , dependent: :destroy
 #  has_many :images,  through: :posts
   #association methods
   #has_many 

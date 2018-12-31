@@ -24,8 +24,6 @@ class PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
         @post.update(post_strong_params)
-        
-        @post.images.attach(params[:post][:images]) if params[:post][:images]
         if params[:post][:images_to_delete]
             params[:post][:images_to_delete].each do |id|
                 image = @post.images.find(id)
@@ -35,10 +33,10 @@ class PostsController < ApplicationController
         redirect_to post_path(@post)
     end
 
-    def delete
-         @pic = current_pic
-         @pic.purge
-         redirect_to root_path
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        redirect_to user_path(current_user)
     end
 
     private
