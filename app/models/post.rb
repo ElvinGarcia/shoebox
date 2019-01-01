@@ -3,5 +3,4 @@ class Post < ApplicationRecord
     has_many_attached :images, dependent: :destroy
     validates :description, presence: true
 
-
 end

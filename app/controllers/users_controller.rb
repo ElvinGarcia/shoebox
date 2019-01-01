@@ -38,8 +38,8 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        current_user.destroy
-        log_out
+        delete_account
+        flash[:notice] = "Your account was succesfully Deleted"
         redirect_to root_path
     end
 

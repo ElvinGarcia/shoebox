@@ -43,6 +43,12 @@ module SessionsHelper
         current_user = nil
     end
 
+    def delete_account
+       forget
+       current_user.destroy
+       reset_session 
+    end
+
     
 
 end
