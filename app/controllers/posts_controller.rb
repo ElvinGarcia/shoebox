@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     private
 
     def post_strong_params
-         params.require(:post).permit(:date,:description,images:[])
+         params.require(:post).permit(:date,:description,:title,images:[])
     end
 
 end
