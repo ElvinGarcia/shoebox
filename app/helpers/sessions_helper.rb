@@ -2,7 +2,7 @@
 module SessionsHelper
 
     #add user to the current session
-    def log_in (user)
+    def log_in(user)
         session[:user_id] = user.id
     end
 
@@ -18,6 +18,23 @@ module SessionsHelper
            end
         end
     end
+
+    # boolean for correct resource is allow for current user 
+    def current_user?(user)
+        user == current_user
+    end
+#------------------------------------------------------------------------------------------
+    #stores in session the location that was navigated before login in
+    def navigated_location
+        session[:before_login] = request.original_url if request.get?
+    end
+    
+    #redirects back to resourced navigated before login
+    def redirect_back_to_intent(user) 
+        redirect_to(session[:before_login] || user)
+        session.delete(:before_login)
+    end
+#------------------------------------------------------------------------------------------
 
     # Returns true if the user is logged in, false otherwise.
     def logged_in?
