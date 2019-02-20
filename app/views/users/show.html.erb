@@ -12,13 +12,16 @@
   </aside>
 </div>
 
+
 <div class="action-menu">
 <h3>Action Menu </h3>
 <ul>
-<li><%= link_to 'Create a New Post', new_post_path %></li>
+<li><%= link_to 'Create a New Post',new_user_post_path(current_user) %></li>
 <li> <%= link_to 'Delete Account', user_path(current_user), method: "delete" %> </li>
 </ul>
 </div>
+
+
     
 <div class="main">    
 <h3>Posts :</h3>

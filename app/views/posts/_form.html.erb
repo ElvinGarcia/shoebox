@@ -1,7 +1,7 @@
    
     <div class= "row">
      <div class="col-md-6 col-md-offset-3 ">
-          <%= form_for @post do |f| %>
+          <%= form_for [current_user, @post]   do |f| %>
           
           <fieldset>
          
@@ -24,7 +24,7 @@
           <% end unless @post == nil %>
       <%# end of image code %>
            <br>
-           <%= f.submit %>
+           <%= f.submit "Submit Post"%>
            <% end %>
             </fieldset>
       </div>
