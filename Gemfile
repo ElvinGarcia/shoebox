@@ -45,6 +45,8 @@ group :development, :test do
   gem 'pry'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # generates fake data for development
+  gem 'faker'
 end
 
 group :development do
