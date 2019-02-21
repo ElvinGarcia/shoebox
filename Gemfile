@@ -8,11 +8,10 @@ gem 'omniauth-github'
 #uses activestorage variant
 gem 'mini_magick'
 gem 'bootstrap-sass'
-
+#DB for production
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
@@ -44,6 +43,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'thin'
   gem 'pry'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
