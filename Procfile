@@ -1,1 +1,3 @@
-web: bundle exec rails server -p 80
+web: thin start --ssl -p 80
+
+
