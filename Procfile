@@ -1,3 +1,3 @@
-web: thin start --ssl -p 80
+web: rails s -p 80
 
 
