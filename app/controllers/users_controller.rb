@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :user_login, only:[:edit, :update, :destroy]
+  before_action :user_login, only:[:index, :edit, :update, :destroy]
   before_action :corresponding_user, only:[:edit, :update, :destroy]
 
   def new
@@ -16,6 +16,11 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def index
+    @users = User.all
+  end
+  
 
   def login
     redirect_to users_path if logged_in?

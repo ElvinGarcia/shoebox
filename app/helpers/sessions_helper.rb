@@ -23,7 +23,7 @@ module SessionsHelper
     def current_user?(user)
         user == current_user
     end
-#------------------------------------------------------------------------------------------
+
     #stores in session the location that was navigated before login in
     def navigated_location
         session[:before_login] = request.original_url if request.get?
@@ -34,7 +34,7 @@ module SessionsHelper
         redirect_to(session[:before_login] || user)
         session.delete(:before_login)
     end
-#------------------------------------------------------------------------------------------
+
 
     # Returns true if the user is logged in, false otherwise.
     def logged_in?

@@ -1,1 +1,7 @@
-#if user is an admin the page will list all users
+
+<ul class = "users">
+    <% @users.each do |user| %>
+    <li>  <%= user.name  %>  </li>
+    <li>  <%= user.email %>  </li>
+    <% end %>
+</ul>

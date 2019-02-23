@@ -59,21 +59,23 @@ p {
 // }
 
 
+body {
+  padding-top: 60px;
+  margin-top: 4%;
+  border: red solid 3px;
+  }
 
-
-// body {
-//   padding-top: 60px;
-//   }
-
-// section {
-//     overflow: auto;
-//     }
+section {
+    overflow: auto;
+    }
 
 textarea {
     resize: vertical;
     }
 
-.center {
+
+
+ .center {
     text-align: center;
    h1 {
     margin-bottom: 10px;

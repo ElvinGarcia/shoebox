@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
        @user = User.find_by(email: params[:user][:email])
       if @user && @user.authenticate(params[:user][:password])
         log_in(@user) 
-       #verifies via params that the user selected to be remember then runs 
+      #verifies via params that the user selected to be remember then runs 
       #remember user instant method
         remember(@user) if params[:user][:remember] == "1"
       #redirects back to location before login

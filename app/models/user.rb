@@ -37,7 +37,7 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-      end
+  end
 
   # retrieves the set token
   def remember
