@@ -1,3 +1,4 @@
-web: rails s -p 80
+web: bundle exec puma -C config/puma.rb
+
 
 
