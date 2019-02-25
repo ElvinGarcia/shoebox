@@ -184,3 +184,14 @@ input {
      display: block;
    }
  }
+
+ /* users list style */
+  .users{
+    list-style-type: none;
+    margin:0;
+    li{
+      overflow: auto;
+      padding: 10px 0;
+      border-bottom: 1px solid $gray-medium-light;
+    }
+  }
