@@ -15,10 +15,11 @@
 
 <div class="action-menu">
 <h3>Action Menu </h3>
-<ul>
-<li><%= link_to 'Create a New Post',new_user_post_path(current_user) %></li>
-<li> <%= link_to 'Delete Account', user_path(current_user), method: "delete" %> </li>
-</ul>
+  <ul>
+  <li><%= link_to 'Create a New Post',new_user_post_path(current_user) %></li>
+    <li> <%= link_to 'Delete Account', user_path(current_user), method: "delete", data:{ confirm: "are you sure ?"} %> </li>  
+
+  </ul>
 </div>
 
 

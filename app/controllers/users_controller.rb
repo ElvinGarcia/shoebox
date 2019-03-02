@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :user_login, only:[:index, :edit, :update, :destroy]
-  before_action :corresponding_user, only:[:edit, :update, :destroy]
+  before_action :user_login, only:[:login, :index, :edit, :update]
+  before_action :corresponding_user, only:[:edit, :update]
 
   def new
     @user = User.new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
 
   def login
-    redirect_to users_path if logged_in?
+    redirect_to users_path #if logged_in?
   end
 
 
@@ -54,10 +54,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    delete_account
-    flash[:notice] = 'Your account was succesfully Deleted'
-    redirect_to root_path
+      user = User.find(params[:id])
+      delete_account(user)
+      flash[:notice] = 'The Account Was Succesfully Deleted'
+      redirect_to root_path    
   end
+
+    
+ 
+
 
 private
 #mass assigments

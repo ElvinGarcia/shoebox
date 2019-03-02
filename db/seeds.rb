@@ -10,6 +10,8 @@
     user = User.new
     user.name = Faker::Name.unique.name
     user.email = Faker::Internet.unique.email
-    user.password = "0000000000" 
+    user.password = "password" 
     user.save  
 end
+
+User.create!(name: "unknown", email: "unknown@unknown.com", password: "password", admin: true )

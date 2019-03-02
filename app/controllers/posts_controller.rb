@@ -2,6 +2,8 @@
 
 class PostsController < ApplicationController
   def index
+    binding.pry
+    #pulls all post from #user_id
     @posts = Post.all
   end
 
@@ -33,6 +35,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(current_user)
