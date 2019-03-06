@@ -2,9 +2,9 @@
 
 class PostsController < ApplicationController
   def index
-    binding.pry
-    #pulls all post from #user_id
-    @posts = Post.all
+    #paginates the user's posts
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def new
@@ -17,7 +17,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
   end
 
   def edit

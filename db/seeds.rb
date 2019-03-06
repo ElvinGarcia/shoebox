@@ -14,4 +14,4 @@
     user.save  
 end
 
-User.create!(name: "unknown", email: "unknown@unknown.com", password: "password", admin: true )
+User.create!(name: "unknown", email: "admin@admin.com", password: "password", admin: true )
