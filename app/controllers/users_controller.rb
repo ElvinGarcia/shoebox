@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :user_login, only:[:login, :index, :edit, :update]
+  before_action :user_login, only:[:index, :edit, :update]
   before_action :corresponding_user, only:[:edit, :update]
-
+  
   def new
     @user = User.new
   end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @user = current_user
     else
       flash[:alert] = 'You must be Logged in Order to View this Page'
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
 
   def login
-    redirect_to users_path #if logged_in?
+    redirect_to users_path if logged_in?
   end
 
 
@@ -76,13 +76,14 @@ private
   def user_login
     unless logged_in?
       navigated_location  #stores the location that was navigated before login
-      flash[:alert]= "You must be log in to access that portion of the site" 
+      flash[:alert]= "You Must Be Log In Order To Access that Portion of the Site" 
       redirect_to login_path
     end
   end
 
 #only the corresponding resoure could be edit or updated
   def corresponding_user
+    byebug
     @user = User.find(params[:id])
     flash[:alert]= "Resource is not Available"
     redirect_to root_path unless current_user?(@user)
