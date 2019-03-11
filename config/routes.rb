@@ -12,15 +12,17 @@ Rails.application.routes.draw do
 
   root to: "static_pages#index"
   get '/auth/:provider/callback' => 'sessions#login'
-  get '/login', to: 'users#login'
-  get '/contact', to:"static_pages#contact", as: "contact"
-  get '/about',   to:"static_pages#about",   as: "about"
   post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'
+  get '/contact', to:"static_pages#contact", as: "contact"
+  get '/about',   to:"static_pages#about",   as: "about"
   
+  get '/login', to: 'users#login'
+
+   resources :activations, only:[:edit]
      
-   resources :users do
-    resources :posts
+  resources :users do
+   resources :posts
   end
 
   
