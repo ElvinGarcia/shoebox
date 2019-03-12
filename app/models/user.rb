@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
   has_many :posts, dependent: :destroy
   #  has_one_attached :avatar #active_storage requirement
   #  has_many :images,  through: :posts
@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   # converts email to downcase  before saving it inorder to prevent inconsistency
   before_save { email.downcase! }
+  before_create :create_user_digest
 
   # bcrypt encryption for the usr password
   has_secure_password
@@ -53,4 +54,12 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  private
+  def create_user_digest
+    #creates a token and digest
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
+
 end
