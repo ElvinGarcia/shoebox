@@ -1,3 +1,4 @@
-User#account_activation
-
-<%= @greeting %>, find me in app/views/user_mailer/account_activation.text.erb
+Account Activation Notice
+<%= @greeting %>, <%= @user.name %>
+ Warm welcome to our ecosystem. One final step to activate your account.Click on the link below to activate the account.
+ <%= edit_activation_url(@user.activation_token, email: @user.email) %>

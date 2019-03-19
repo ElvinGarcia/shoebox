@@ -25,7 +25,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 5}, allow_nil: true
   validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 
-
+  #singleton class
   class << self
     # Returns the hash digest of the given string.
     def digest(string)
@@ -46,13 +46,28 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
-  def authenticated?(remember_token)
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?  #no digest to validate against
+    BCrypt::Password.new(digest).is_password?(token) 
   end
 
   # undoes #remember
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def activate
+    #could be refractor into a single line ???????
+    # update_attribute(:activated, true)
+    # update_attribute(:activated_at, Time.zone.now)
+    #direct update bypasses callbacks
+    self.update_columns(activated: true , activated_at: Time.zone.now) 
+  end
+
+  #sends activation link when account is initiated
+  def send_activation_mail
+    UserMailer.account_activation(self).deliver_now
   end
 
   private

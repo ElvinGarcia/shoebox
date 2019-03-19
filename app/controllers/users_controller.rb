@@ -18,21 +18,21 @@ class UsersController < ApplicationController
   end
 
   def index
-      @users = User.paginate(page: params[:page])
+    #prevents none activated users from being display 
+      @users = User.where(activated: true).paginate(page: params[:page])
   end
-  
+
 
   def login
     redirect_to users_path if logged_in?
   end
 
-
   def create
     @user = User.create(user_strong_params)
     if @user.save
-      log_in @user
-      flash[:notice] = 'You Been Succesfully Registered'
-      render :show
+      @user.send_activation_mail
+      flash[:info] = "To Complete The Activation Please Check Your Email"
+      redirect_to root_url
     else
       render :new
     end
@@ -83,7 +83,6 @@ private
 
 #only the corresponding resoure could be edit or updated
   def corresponding_user
-    byebug
     @user = User.find(params[:id])
     flash[:alert]= "Resource is not Available"
     redirect_to root_path unless current_user?(@user)
