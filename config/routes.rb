@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   
   get '/login', to: 'users#login'
 
-   resources :activations, only:[:edit]
+  resources :activations, only:[:edit]
+  resources :password_resets, only:[:new,:create, :edit, :update]
      
   resources :users do
    resources :posts

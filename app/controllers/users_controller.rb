@@ -83,7 +83,7 @@ private
 
 #only the corresponding resoure could be edit or updated
   def corresponding_user
-    @user = User.find(params[:id])
+  @user = User.find(params[:id])
     flash[:alert]= "Resource is not Available"
     redirect_to root_path unless current_user?(@user)
   end
