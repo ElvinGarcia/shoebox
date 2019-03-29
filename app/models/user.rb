@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   has_many :posts, dependent: :destroy
   #  has_one_attached :avatar #active_storage requirement
   #  has_many :images,  through: :posts
@@ -68,6 +68,12 @@ class User < ApplicationRecord
   #sends activation link when account is initiated
   def send_activation_mail
     UserMailer.account_activation(self).deliver_now
+  end
+
+  def password_reset
+    binding.pry
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(reset_token), )
   end
 
   private

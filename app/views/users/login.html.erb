@@ -7,13 +7,15 @@
       <br>
       <%= text_field_tag 'user[email]',"", placeholder:"eg. name@domain.com" %>
       <br>
-      <%=label_tag 'user[password]', "Password:" %>
+      <%=label_tag 'user[password]', "Password:" %>  <%= link_to '(forgot password)', new_password_reset_path %> 
       <br>
       <%= password_field_tag 'user[password]',"", placeholder:"passsword"  %>
       <br>
       <%=label_tag :remember, "Stay signed in:" %>
       <%=check_box 'user','remember' %>
       <%= submit_tag :submit, class: "btn btn-primary"%>
+      <br>
+      <%= link_to '(new user ?)', new_user_path %>
       <% end %>
     </div>
  </div>

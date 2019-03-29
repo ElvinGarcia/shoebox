@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       @user = User.find_or_create_by(email: auth[:info][:email].downcase) do |user|
         user.name = auth[:info][:name]
         user.email = auth[:info][:email].downcase
-        user.password = SecureRandom.base64
+        user.password = SecureRandom.base64  #could be refractor by making a single call to user model
        end
         log_in(@user)
         redirect_back_to_intent(@user)
