@@ -70,10 +70,15 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
+  #sets and stores the password activation token in the datatbase
   def password_reset
-    binding.pry
     self.reset_token = User.new_token
-    update_columns(reset_digest: User.digest(reset_token), )
+    self.update_columns(reset_digest: User.digest(reset_token),reset_sent_at: Time.zone.now )
+  end
+
+  #sends password reset link
+  def send_password_reset_mail
+    UserMailer.password_reset(self).deliver_now
   end
 
   private
