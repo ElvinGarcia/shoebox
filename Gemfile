@@ -7,7 +7,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 #uses activestorage variant
 gem 'mini_magick'
-gem 'bootstrap-sass'
+gem "bootstrap-sass", ">= 3.4.1"
 #DB for production
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
