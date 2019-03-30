@@ -1,5 +1,7 @@
 
 class PasswordResetsController < ApplicationController
+    before_action :find_user, [:edit, :update]
+    before_action :token_validation, [:edit, :update]
 
     def new
     
@@ -19,13 +21,24 @@ class PasswordResetsController < ApplicationController
     end
     
     def edit 
-    
+        @user = User.find_by(email: params[:email])      
+        
     end
     
     def update
-
+        binding.pry
     end
 
+    private
+    #finds the user in the datatbase
+    def find_user
+        
+    end
+
+
+    # def token_validation(user)
+    #     user.authenticated?(:reset,params[:id])
+    # end
 
 
 end
