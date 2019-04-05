@@ -10,13 +10,17 @@
   </head>
 
   <body>
-      <div id= "notice_alerts">
+      <%# universal menu %>
+      <%= render 'layouts/header' %>
+     
+       <div id= "notice_alerts">
         <%= flash.notice unless nil %>
         <%= flash.alert unless nil %>
       </div>
-      <%# universal menu %>
-      <%= render 'layouts/header' %>
+     
     <div class="container">
+
+
       <%= yield %>
       <%= render 'layouts/footer' %>
       <div>

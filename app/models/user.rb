@@ -11,7 +11,10 @@ class User < ApplicationRecord
 
   # validates the email submitted format
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
-
+  
+  # standard validations
+  validates :name, presence: true, length: { minimum: 5 }
+  
   # converts email to downcase  before saving it inorder to prevent inconsistency
   before_save { email.downcase! }
   before_create :create_user_digest
@@ -19,10 +22,8 @@ class User < ApplicationRecord
   # bcrypt encryption for the usr password
   has_secure_password
 
-  # standard validations
-  validates :name, presence: true, length: { minimum: 5 }
   #must have psw with a min. length of 5 allows nil psw when updating profile but not psw
-  validates :password, presence: true, length: {minimum: 5}, allow_nil: true
+  validates :password, presence: true, length: {minimum: 5}, allow_nil: false
   validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 
   #singleton class
@@ -80,6 +81,12 @@ class User < ApplicationRecord
   def send_password_reset_mail
     UserMailer.password_reset(self).deliver_now
   end
+
+    #boolen return based on time comparison
+  def password_reset_expired?
+    self.reset_sent_at < 30.minutes.ago
+  end
+  
 
   private
   def create_user_digest
