@@ -5,17 +5,19 @@ class PasswordResetsController < ApplicationController
     before_action :expired_token, only: [:edit, :update]
     
     def new
-    
+
     end
     
     def create 
+        #finds the user in the DB
         user = User.find_by(email: params[:password_reset][:email])
-        if user
+        #if user is found
+        if user 
             user.password_reset #generates user digest hash
             user.send_password_reset_mail #sends email witih reset link
-            flash[:notice] = "Please Check your email with instructions on reseting your password"
+            flash[:notice] = "Please Check your Email For Instructions on Reseting your Password"
         else
-            flash[:alert] = "An Email was send to the email provided if it exists"
+            flash[:alert] = "An Email was send if it exists"
         end
         redirect_to root_path
     end
@@ -34,7 +36,7 @@ class PasswordResetsController < ApplicationController
             log_in(@user) 
             @user.update_attribute(:reset_digest, nil) #reset the reset_digest to prevent reuse of the token
             flash[:notice]= "The Password Was Updated"
-            redirect_to root_path
+            redirect_back_to_intent(@user)        
         else
             render 'edit'
         end
