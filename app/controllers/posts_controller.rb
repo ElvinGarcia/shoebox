@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user.posts.create(post_strong_params)
+     @post = current_user.posts.create(post_strong_params)
     redirect_to user_path(current_user)
   end
 
@@ -36,7 +36,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(current_user)

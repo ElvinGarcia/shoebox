@@ -12,15 +12,13 @@
   <body>
       <%# universal menu %>
       <%= render 'layouts/header' %>
-     
-       <div id= "notice_alerts">
+    <div class="flash_container"> 
+       <div class="alert alert-warning" >
+        <%# byebug %>
         <%= flash.notice unless nil %>
         <%= flash.alert unless nil %>
       </div>
-     
-    <div class="container">
-
-
+    
       <%= yield %>
       <%= render 'layouts/footer' %>
       <div>
