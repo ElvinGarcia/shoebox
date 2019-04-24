@@ -1,10 +1,7 @@
    
-    <div class= "row">
-     <div class="col-md-6 col-md-offset-3 ">
+    
           <%= form_for [current_user, @post]   do |f| %>
           
-          <fieldset>
-         
            <%= f.label :title  %>
            <%= f.text_field :title, class: 'form-control' %>
         
@@ -26,6 +23,5 @@
            <br>
            <%= f.submit "Submit Post"%>
            <% end %>
-            </fieldset>
-      </div>
-    </div>
+
+
