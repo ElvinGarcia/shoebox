@@ -13,7 +13,8 @@
     user.password = "password" 
     user.activated = true
     user.activated_at = Time.zone.now
-    user.save  
+    user.save
+    user.posts(title: Faker::Book.unique.title, description: Faker::Quote.unique.most_interesting_man_in_the_world, date: Faker::Date.backward)  
 end
 
 User.create!(name: "admin", email: "admin@admin.com", password: "password", admin: true, activated: true, activated_at: Time.zone.now )
