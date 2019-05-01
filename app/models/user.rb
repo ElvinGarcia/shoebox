@@ -3,8 +3,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :posts, dependent: :destroy
-  #  has_one_attached :avatar #active_storage requirement
-   has_many :active_storage_attachments,  through: :posts
   
   # validates the email submitted format
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
