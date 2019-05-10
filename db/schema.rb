@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_201948) do
+ActiveRecord::Schema.define(version: 2019_05_09_141518) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 2019_04_08_201948) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "budgets", force: :cascade do |t|
+    t.string "category"
+    t.integer "amount"
+  end
+
+  create_table "budgets_posts", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "budget_id", null: false
+    t.boolean "recurring"
+    t.index ["budget_id", "post_id"], name: "index_budgets_posts_on_budget_id_and_post_id", unique: true
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "date"
     t.integer "user_id"
@@ -40,6 +52,14 @@ ActiveRecord::Schema.define(version: 2019_04_08_201948) do
     t.string "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "receipt_id"
+  end
+
+  create_table "receipts", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.integer "amount"
+    t.date "date"
   end
 
   create_table "users", force: :cascade do |t|

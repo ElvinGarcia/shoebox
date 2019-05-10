@@ -1,0 +1,2 @@
+class BudgetsPost < ApplicationRecord
+end
