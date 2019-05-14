@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_141518) do
+ActiveRecord::Schema.define(version: 2019_05_14_020500) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,13 +38,6 @@ ActiveRecord::Schema.define(version: 2019_05_09_141518) do
     t.integer "amount"
   end
 
-  create_table "budgets_posts", id: false, force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "budget_id", null: false
-    t.boolean "recurring"
-    t.index ["budget_id", "post_id"], name: "index_budgets_posts_on_budget_id_and_post_id", unique: true
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "date"
     t.integer "user_id"
@@ -60,6 +53,17 @@ ActiveRecord::Schema.define(version: 2019_05_09_141518) do
     t.string "type"
     t.integer "amount"
     t.date "date"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "recurring", default: 0
+    t.text "content"
+    t.integer "user_id"
+    t.integer "budget_id"
+    t.integer "receipt_id"
+    t.index ["budget_id"], name: "index_transactions_on_budget_id"
+    t.index ["receipt_id"], name: "index_transactions_on_receipt_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
