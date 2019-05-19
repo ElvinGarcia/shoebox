@@ -3,8 +3,9 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :posts, dependent: :destroy
-  has_many :transactions
-  has_many :budgets, through: :transactions
+  has_many :receipts
+  has_many :budgets
+  has_many :budgets, through: :receipts
 
 
   # validates the email submitted format

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
   
   resources :budgets
-  resources :transactions
+  resources :receipts
   
   
   

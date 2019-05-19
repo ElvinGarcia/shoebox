@@ -8,6 +8,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def create
+    @user = User.create(user_strong_params)
+    if @user.save
+      @user.send_activation_mail
+      flash[:info] = "To Complete The Activation Please Check Your Email"
+      redirect_to root_url
+    else
+      render :new
+    end
+  end
+
   def show
     if logged_in?
       @user = current_user
@@ -25,17 +36,6 @@ class UsersController < ApplicationController
 
   def login
     redirect_to users_path if logged_in?
-  end
-
-  def create
-    @user = User.create(user_strong_params)
-    if @user.save
-      @user.send_activation_mail
-      flash[:info] = "To Complete The Activation Please Check Your Email"
-      redirect_to root_url
-    else
-      render :new
-    end
   end
 
   def edit
