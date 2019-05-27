@@ -24,11 +24,12 @@ Rails.application.routes.draw do
   resources :password_resets, only:[:new,:create, :edit, :update]
      
   resources :users do
-   resources :posts
+    resources :receipts
+    resources :posts
   end
   
   resources :budgets
-  resources :receipts
+  
   
   
   

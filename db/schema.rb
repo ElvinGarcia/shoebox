@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_19_013045) do
+ActiveRecord::Schema.define(version: 2019_05_21_022226) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_05_19_013045) do
     t.text "content"
     t.integer "user_id"
     t.integer "budget_id"
+    t.integer "amount"
     t.index ["budget_id"], name: "index_receipts_on_budget_id"
     t.index ["user_id"], name: "index_receipts_on_user_id"
   end

@@ -1,18 +1,4 @@
-<div class= "row">
-    <div class="col-md-6 col-md-offset-3 ">
-    <fieldset>
-      <legend>Login Form:</legend>          
-        <%= form_for @budget do |f| %>
-                <%= f.label :category %>
-                <br>
-                <%= f.text_field :category, placeholder: "eg., household, dinning" %>
-                <br>
-                <%= f.label :amount%>
-                <br>
-                <%= f.number_field :amount%>
-                <br>
-                <%=f.submit  %>
-        <%end%>
-        </fieldset>
-    </div>
-  </div>
+
+      <legend>Budget Form:</legend>          
+        <%= render 'form' %>
+     
