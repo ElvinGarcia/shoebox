@@ -30,7 +30,7 @@ module SessionsHelper
     end
     
     #redirects back to resourced navigated before login
-    def redirect_back_to_intent(user) 
+    def redirect_back_to_intent(user)
         redirect_to(session[:before_login] || user)
         session.delete(:before_login)
     end

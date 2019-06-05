@@ -12,7 +12,12 @@ class BudgetsController < ApplicationController
    
     def create
         current_user.budgets.create!(budget_strong_param) #refractor opportunity could be done at model level
+        flash[:notice] ="The Budget Was Succesfully Created"
+        if session[:before_login]
+            redirect_back_to_intent(current_user)
+        else
         redirect_to budgets_path
+        end
     end
 
     def edit
@@ -24,8 +29,8 @@ class BudgetsController < ApplicationController
         flash[:success] = "Budget was Successfully Updated"
         redirect_to budgets_path
       else
-        render 'edit'
         flash[:notice] = "something went wrong"
+        render 'edit'
       end
     end
 
@@ -42,9 +47,8 @@ class BudgetsController < ApplicationController
         @budget = current_user.budgets.find(params[:id])
     end
     
-
     def budget_strong_param
-        params.require(:budget).permit(:amount,:category)
+        params.require(:budget).permit(:category,:amount)
     end
     
 end

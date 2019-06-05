@@ -1,7 +1,7 @@
 
 
         <%= form_for([:user,@receipt]) do |f| %>
-        <%= f.label :budgets %>
+         <%= f.label :budgets %>
         <%= collection_select(:user, :budgets, @user.budgets, :id, :category) %> 
         <br>
           <%= f.label :content %>
@@ -13,3 +13,4 @@
           <%=  f.check_box :recurring %>
           <br>
           <%= f.submit %>
+          <% end %>

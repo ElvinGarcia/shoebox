@@ -1,10 +1,6 @@
 
-<div class= "row">
-    <div class="col-md-6 col-md-offset-3 ">
-    <fieldset>
-<%= form_for @budget do |f| %>
-<%# this needs to be modified so all views could share it %>
- <%# render 'shared/error_messages' %>
+
+    <%= form_for @budget do |f| %>
       <%= f.label :category %>
       <br>
       <%= f.text_field :category, placeholder: "eg., household, dinning" %>
@@ -14,8 +10,4 @@
       <%= f.number_field :amount%>
       <br>
       <%=f.submit  %>
-        <%end%>
-
- </fieldset>
-    </div>
-  </div>
+     <%end%>
