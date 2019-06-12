@@ -1,10 +1,12 @@
 class Receipt < ApplicationRecord
+    has_many_attached :images, dependent: :destroy    
     belongs_to :user
     belongs_to :budget
-
-    has_many_attached :images, dependent: :destroy    
-    validates :budget_id, presence: true
-    #validates :content, :amount, presence: true
+    #validates :content,:amount, presence: true
+    
+    
+    
+    
     
     
 
