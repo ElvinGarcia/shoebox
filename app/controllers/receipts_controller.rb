@@ -1,10 +1,10 @@
 class ReceiptsController < ApplicationController
-    before_action :find_receipt, only: [:edit,:update,:destroy]
+    before_action :find_receipt, only: [:edit,:update,:show,:destroy]
     
 
 
     def index
-        @receipts = current_user.receipts.where.not(amount: !nil).paginate(page: params[:page])
+       @receipts = current_user.receipts.where.not(amount: !nil).paginate(page: params[:page])
     end
     
     def new
@@ -26,6 +26,11 @@ class ReceiptsController < ApplicationController
         redirect_to new_user_receipt_path(current_user)
        end
     end
+
+    def show
+        
+    end
+    
 
     def edit
         @user = current_user    

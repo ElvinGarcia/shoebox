@@ -1,0 +1,13 @@
+
+
+<div class= "row">
+   <div class="col-md-6 col-md-offset-3 ">
+   <legend>Receitps:</legend>
+        <ul class="users">
+            <li>Content: <%= @receipt.content %> </li>
+            <li>Amount: <%= @receipt.amount %> </li>
+            <li>Budget: <%= link_to @receipt.budget.category, budget_path(@receipt.budget) %> </li>
+            <li>Budget Balance: <%= @receipt.budget.amount %> </li>
+        </ul>
+   </div>
+   </div>

@@ -3,6 +3,7 @@
 <div class= "row">
          <div class="col-md-6 col-md-offset-3 ">
     <legend>Receitps</legend>
+    <h6> <%=link_to 'Create A Receipt', new_user_receipt_path(current_user) %> </h6>
         <%= will_paginate %>
             <ul class = "user"> <%= render @receipts %> </ul>
         <%= will_paginate %>                            

@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-    before_action :find_the_budget, only: [:edit,:update,:destroy]
+    before_action :find_the_budget, only: [:edit,:update,:destroy,:show]
 
     def index
         @budgets = current_user.budgets.paginate(page: params[:page])
@@ -19,6 +19,11 @@ class BudgetsController < ApplicationController
         redirect_to budgets_path
         end
     end
+
+    def show
+
+    end
+    
 
     def edit
        

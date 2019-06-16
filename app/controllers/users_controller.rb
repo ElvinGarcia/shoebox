@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def index
     #prevents none activated users from being display 
-      @users = User.where(activated: true).paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
 

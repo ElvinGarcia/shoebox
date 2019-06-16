@@ -3,7 +3,7 @@
 
 
 <li>
-   <%= budget.category %> | <%= link_to 'delete', budget_path(budget), method: :delete, data:{confirm: "Are You Sure ?"} %> | <%= link_to 'edit', edit_budget_path(budget) %>
+<%= link_to budget.category, budget_path(budget.id)%> |<%= link_to 'delete', budget_path(budget), method: :delete, data:{confirm: "Are You Sure ?"} %> | <%= link_to 'edit', edit_budget_path(budget) %>
 </li>
 
 
