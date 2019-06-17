@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_022226) do
+ActiveRecord::Schema.define(version: 2019_06_16_042302) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_05_21_022226) do
   create_table "budgets", force: :cascade do |t|
     t.string "category"
     t.integer "amount"
+    t.integer "balance"
   end
 
   create_table "posts", force: :cascade do |t|
