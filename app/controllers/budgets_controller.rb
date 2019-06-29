@@ -2,7 +2,7 @@ class BudgetsController < ApplicationController
     before_action :find_the_budget, only: [:edit,:update,:destroy,:show]
 
     def index
-        @budgets = current_user.budgets.paginate(page: params[:page])
+        @budgets = current_user.budgets.distinct.paginate(page: params[:page])
     end
     
     

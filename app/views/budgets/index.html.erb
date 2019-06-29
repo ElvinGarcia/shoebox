@@ -5,7 +5,7 @@
     <legend>Budgets</legend>
         <%= will_paginate %>
         <h6> <%=link_to 'Add A New Budget', new_budget_path %> 
-            | <%=link_to 'Submit a Receipt', new_user_receipt_path(current_user) %> </h6>
+            | | <%=link_to 'Submit a Receipt', new_user_receipt_path(current_user) %> </h6>
           <ul class = "users"> <%= render @budgets %> </ul>
         <%= will_paginate %>                            
     </div>
