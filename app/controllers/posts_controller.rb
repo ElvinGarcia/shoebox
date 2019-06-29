@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
      @post = current_user.posts.create(post_strong_params)
     redirect_to user_path(current_user)
   end
