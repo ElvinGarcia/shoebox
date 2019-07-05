@@ -1,6 +1,7 @@
 
 
     <%= form_for @budget do |f| %>
+    <%= render partial:'shared/error_messages', locals:{:item => @budget} %>
       <%= f.label :category %>
       <br>
       <%= f.text_field :category, placeholder: "eg., household, dinning" %>

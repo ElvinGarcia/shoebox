@@ -1,11 +1,11 @@
 
 
         <%= form_for([:user,@receipt]) do |f| %>
+        <%= render partial:'shared/error_messages', locals:{:item => @receipt} %>
          <%= hidden_field_tag("receipt[user_id]",@user.id )  %>
          <%= f.label :budgets %>
            <%= collection_select(:receipt, :budget_id, @user.budgets, :id, :category) %> 
            
-             <%# f.collection_select :provider_id, Provider.order(:name),:id,:name, include_blank: true %>
         <br>
           <%= f.label :content %>
           <%=f.text_field :content  %>

@@ -1,13 +1,13 @@
    
     
           <%= form_for [current_user, @post]   do |f| %>
-          
+          <%= render partial:'shared/error_messages', locals:{:item => @post} %>
            <%= f.label :title  %>
            <%= f.text_field :title, class: 'form-control' %>
         
            <%= f.label :description %>
            <%= f.text_area :description, class: 'form-control' %>
-        
+        <%# start of image code %>
            <%= f.label :images %>
            <%= f.file_field :images, multiple: true %>
            <br>

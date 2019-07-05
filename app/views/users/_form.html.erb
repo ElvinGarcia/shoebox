@@ -3,7 +3,7 @@
    
 
           <%= form_for @user do |f| %>
-        <%= render 'shared/error_messages' %>
+        <%= render partial:'shared/error_messages', locals:{:item => @user} %>
         <%= f.label :name %>
         <br>
         <%= f.text_field :name %>
