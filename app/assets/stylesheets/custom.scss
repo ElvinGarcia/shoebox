@@ -170,9 +170,7 @@ input {
       border-bottom: 1px solid $gray-medium-light;
     }
   }
-  
-  /* prevents content ffrom being over flow */
-  .flash_container{
-    margin-top: 5%;
-  }
-  
+  /* prevents navbar will overlay your other content*/
+  body { 
+    padding-top: 65px; 
+}

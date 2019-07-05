@@ -5,10 +5,10 @@ class ActivationsController < ApplicationController
         if user && user.authenticated?(:activation,params[:id]) && !user.activated? #makes sure the user havent been activated before 
             user.activate
             log_in(user)
-            flash[:success]="Account Activation was Successful"
+            flash[:notice]="Account Activation was Successful"
             redirect_to user
         else
-            flash[:danger]="Unable to activate the account activation link"
+            flash[:alert]="Unable to activate the account activation link"
             redirect_to login_path
         end
     end
