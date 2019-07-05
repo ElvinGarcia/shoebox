@@ -65,12 +65,12 @@ class UsersController < ApplicationController
 
 
 private
-#mass assigments
+
   def user_strong_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
   end
 
-  # before action 
+  # before actions
 
 #must be logged in to edit or update any resources
   def user_login
