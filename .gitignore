@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/osx,ruby,rails
 
+# VScode
+.vscode
+
 ### OSX ###
 # General
 .DS_Store
