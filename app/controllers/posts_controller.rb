@@ -15,8 +15,13 @@ class PostsController < ApplicationController
 
   def create
      @post = current_user.posts.create(post_strong_params)
+    if !@post.persisted?
+     render 'new' 
+    else
+     flash[:notice]="The Post Was Saved Succesfully"
     redirect_to user_path(current_user)
-  end
+    end
+  end 
 
   def show
     @post = @user.posts.find(params[:id])
