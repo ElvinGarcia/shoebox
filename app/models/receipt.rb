@@ -2,7 +2,6 @@ class Receipt < ApplicationRecord
     has_many_attached :images, dependent: :destroy    
     belongs_to :user
     belongs_to :budget
- 
     after_save :balance_adjuster
     
 

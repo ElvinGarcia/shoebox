@@ -19,7 +19,6 @@ class ReceiptsController < ApplicationController
 
     def create
         if Receipt.create!(receipt_strong_params)
-       #if current_user.budgets.find(params[:receipt][:budget_id]).receipt.create!(receipt_strong_params)   
         flash[:notice] ="The Receipt Was Succesfully Created"
         redirect_to user_receipts_path(current_user)
        else
@@ -58,7 +57,7 @@ class ReceiptsController < ApplicationController
     private
 
     def receipt_strong_params
-        params.require(:receipt).permit(:content,:amount,:recurring,:user_id,:budget_id)
+        params.require(:receipt).permit(:content,:amount,:recurring,:user_id,:budget_id,images: [])
     end
     
     def find_receipt

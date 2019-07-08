@@ -7,7 +7,19 @@
             <li>Content: <%= @receipt.content %> </li>
             <li>Amount: <%= @receipt.amount %> </li>
             <li>Budget: <%= link_to @receipt.budget.category, budget_path(@receipt.budget) %> </li>
-            <li>Budget Balance: <%= @receipt.budget.amount %> </li>
+            <li>Budget Balance: $<%= @receipt.budget.amount %> </li>
+
         </ul>
    </div>
    </div>
+
+<div class="show-post">
+<p > 
+ <% @receipt.images.each do |img| %>
+  <div class="img-box">
+     <%= image_tag img.variant(resize: "200x200") %>
+     <p class="small"> <%= link_to 'Download', rails_blob_path(img, disposition:"attachment") %> </p>
+     </div>
+     </p>
+  <% end %> 
+</div>

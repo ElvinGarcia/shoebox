@@ -15,5 +15,19 @@
           <%= f.label :recurring%>
           <%=  f.check_box :recurring %>
         <br>
+         <%# start of image code %>
+           <%= f.label :images %>
+           <%= f.file_field :images, multiple: true %>
+           <br>
+            <%= f.label "select a file to delete:" %>
+          <% @post.images.each do |img| %>
+          <div class="img-box">
+            <%= image_tag img.variant(resize: "100x100") %>
+            <%= check_box_tag "post[images_to_delete][]", img.id %>
+            </div>
+            </p>
+          <% end unless @post == nil %>
+        <%# end of image code %>
+        <br>
           <%= f.submit %>
           <% end %>
