@@ -18,13 +18,16 @@
   <ul>
   <li><%= link_to 'Create a New Post',new_user_post_path(current_user) %></li>
   <br>
-  <li> <%=link_to 'Create A Budget', new_budget_path %> </li>
-  <li> <%=link_to 'View All Budgets', budgets_path %> </li>
+  <li> <%=link_to 'Create A Budget', new_budget_path,class:"",title:"Create A Budget" %> </li>
+  <li> <%=link_to 'View All Budgets', budgets_path,class:"",title:"Budgets"%> </li>
   <br>
-  <li> <%=link_to 'Submit A Receipt', new_user_receipt_path(current_user) %> </li>
-  <li> <%=link_to 'View All Receipts', user_receipts_path(current_user) %> </li>
+  <li> <%=link_to 'Submit A Receipt', new_user_receipt_path(current_user),class:"glyphicon glyphicon-pencil",title:"Submit A Receipt" %> </li>
+  <li> <%=link_to 'View All Receipts', user_receipts_path(current_user),class:"",title:"Receipts" %> </li>
   <br>
-  <li> <%= link_to 'Delete Account', user_path(current_user), method: "delete", data:{ confirm: "are you sure ?"} %> </li>  
+  <li>
+   <i class="material-icons">delete</i>
+   <%= link_to ' Delete Account', user_path(current_user), method: "delete", data:{ confirm: "are you sure ?"},title:"Delete The Account" %>
+   </li>  
 
   </ul>
 </div>

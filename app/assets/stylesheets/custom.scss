@@ -57,27 +57,36 @@ textarea {
     }
   }
 
-  /* footer */
-
-footer {
-  clear:both;
-  bottom: 0;
-
-  small {
-    float: left;
-    margin-left: 5px; 
-    }
-  ul {
-  right: 0px;
-  bottom: 0px;
-  left:0px;
-  text-align: center;
-  margin-bottom: 0;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
-    list-style: none;
+  body{
+  position: relative;
+  min-height: 100vh;
+  overflow: auto;
   }
-}
+
+  /* footer */
+  footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    border:black solid 1px;
+    border-radius: 12px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly; /*main axis */
+    align-items: flex-start; /*cross axis */
+    align-content: center; /* aligning items with multiple lines  on cross-axis  */
+    
+    ul{
+      list-style: none;
+      padding-left: 0px;
+      display: flex;
+      li{
+        margin: 10px;
+      }
+    }
+  }
+
 
 /* misc not not part of production */
 .debug_dump{
