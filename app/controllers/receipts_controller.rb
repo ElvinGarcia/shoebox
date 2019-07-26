@@ -4,7 +4,7 @@ class ReceiptsController < ApplicationController
 
 
     def index
-       @receipts = current_user.receipts.where.not(amount: !nil).paginate(page: params[:page])
+       @receipts = current_user.receipts.where.not(amount: !nil).paginate(page: params[:page], per_page:10)
     end
     
     def new
