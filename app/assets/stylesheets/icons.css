@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/*# sourceMappingURL=icons.css.map */
+
+.icons{
+  display: inline-block;
+  margin: 0 auto;
+  fill: black;
+  width: 30px;
+}

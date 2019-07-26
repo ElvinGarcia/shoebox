@@ -57,21 +57,30 @@ textarea {
     }
   }
 
-  body{
-  position: relative;
-  min-height: 100vh;
-  overflow: auto;
-  }
+  body { 
+    position: relative;
+    top:71px;
+    min-height: 90vh;
+    padding: 10px 50px;
+    }
 
+    .main{
+      position:relative;
+      height:80vh;
+      overflow: auto;
+    }
   /* footer */
-  footer{
+  .footer>footer{
     position: absolute;
+    width: 95%;
     bottom: 0;
-    width: 100%;
-
+    left:0;
+    right:0;
+    margin: 0 auto;
     border:black solid 1px;
     border-radius: 12px;
-    display: flex;
+    
+    display: flex; 
     flex-flow: row wrap;
     justify-content: space-evenly; /*main axis */
     align-items: flex-start; /*cross axis */
@@ -86,7 +95,7 @@ textarea {
       }
     }
   }
-
+ 
 
 /* misc not not part of production */
 .debug_dump{
@@ -176,9 +185,7 @@ input {
     }
   }
   /* prevents navbar will overlay your other content*/
-  body { 
-    padding-top: 70px; 
-}
+  
 
 
 .action-menu>ul{
