@@ -58,17 +58,69 @@ textarea {
   }
 
   body { 
-    position: relative;
-    top:71px;
-    min-height: 90vh;
-    padding: 10px 50px;
+     margin-top: 10vh;
+     padding: 10px 50px;
     }
-
+    
+    .index_container{
+    .main_img{
+      margin:auto;
+      border:solid;
+     }
+    }
+    
     .main{
       position:relative;
       height:80vh;
-      overflow: auto;
+      overflow: scroll;
+      display: flex;
+      flex-flow: row wrap ;
+      justify-content: space-around ;
+      align-items: flex-start;
+      align-content: space-between;
+      .posts{ flex: 1 1;}
+      .card{
+       float: left;
+       overflow: hidden;
+       width:300px;
+       height:200px;
+       margin: 1em;
+       padding: 1em;
+       border: solid silver 2px;  
+        .card-img{
+        display:inline-block;
+        border:black solid 2px;
+       }
+      }
+      .row, .form_container{
+        position: relative;
+        display:flex;
+        flex-flow:row wrap;
+        justify-content: center;
+        align-items:center;
+        align-content:flex-start;
+        min-width:100%;
+        min-height:100%;
+        .col-md-6,.form{
+          margin:auto;
+          border:black solid 2px;
+          padding:10px;
+          border-radius: 10px;
+          }
+        }
     }
+  
+    .index_container{
+      display: flex;
+      flex-flow: row wrap;
+      min-width:90%;
+      min-height:90%;
+      .index{
+        border: solid 2px;
+        border-radius: 10px;
+      }
+    }
+
   /* footer */
   .footer>footer{
     position: absolute;
@@ -79,7 +131,7 @@ textarea {
     margin: 0 auto;
     border:black solid 1px;
     border-radius: 12px;
-    
+  /*flex container */
     display: flex; 
     flex-flow: row wrap;
     justify-content: space-evenly; /*main axis */
@@ -97,7 +149,7 @@ textarea {
   }
  
 
-/* misc not not part of production */
+/* misc., not part of production */
 .debug_dump{
   clear: both;
   float: left;
@@ -131,17 +183,7 @@ input {
     margin: .4rem;
 }
 
-.card{
-  margin: 2em;
-  padding: 1em;
-  width:65%;
-  height: 100%;
-  border: solid silver 2px;  
- .card-img{
-   display:inline-block;
-   border:black solid 2px;
- }
-}
+
 
  .show-post{
    float:left;
@@ -151,8 +193,7 @@ input {
    padding: 2em;
    border: silver solid;
     .img-box{
-      display:inline-block;
-      
+      display:inline-block;   
       border:black solid 1px;
       margin-left:5px;
       padding:1px;
@@ -184,7 +225,7 @@ input {
       border-bottom: 1px solid $gray-medium-light;
     }
   }
-  /* prevents navbar will overlay your other content*/
+  
   
 
 

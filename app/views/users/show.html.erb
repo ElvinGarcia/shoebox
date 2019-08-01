@@ -1,24 +1,17 @@
 
-<h2>Welcome <%= current_user.name %></h2>
-
-<div class="row user-info">
-  <aside class="col-md-4">
-   <h3>Profile information: </h3>
-    <ul>
-     <li>Name:  <%=current_user.name%>  </li>
-     <li>Email: <%=current_user.email%></li>
-     <li>admin?: <%=current_user.admin%></li>
-    </ul>
-  </aside>
-</div>
-
 
 <div class="action-menu">
-<h3>Action Menu </h3>
+ <h3>Action Menu </h3>
   <ul>
   <li>
   <%= embedded_svg("svg/noun_Create_Post_214735") %>
-  <%= link_to 'Create a New Post',new_user_post_path(current_user) %> </li>
+  <%= link_to 'Create a New Post',new_user_post_path(current_user) %> 
+  </li>
+  <br>
+  <li>
+  <%= embedded_svg("svg/noun_archive_full_1422037") %>
+  <%= link_to 'View All Posts', user_posts_path(current_user) %>
+  </li>
   <br>
   <li>
    <%= embedded_svg("svg/noun_budget_2287074") %>
@@ -45,10 +38,32 @@
 </div>
 
 
+
 <% if @user.posts.any? %>
-  <div class="main">    
+ <div class="posts">    
   <h3>Posts :</h3>
   <%= render partial: 'posts/post', collection: @user.posts %>
-  </div>
+ </div>
 <% end %>
     
+
+<div >
+  <% if @user.receipts.any? %>
+  <h3>Receipts:</h3>
+    
+  <% end %>
+</div>    
+
+
+
+
+<div class="column user-info">
+  <aside class="col-md-4">
+   <h3>Profile information: </h3>
+    <ul>
+     <li>Name:  <%=current_user.name%>  </li>
+     <li>Email: <%=current_user.email%></li>
+     <li>admin?: <%=current_user.admin%></li>
+    </ul>
+  </aside>
+</div>

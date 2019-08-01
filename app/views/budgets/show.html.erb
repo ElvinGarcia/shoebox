@@ -1,13 +1,13 @@
 
 
 
-<div class= "row">
-   <div class="col-md-6 col-md-offset-3 ">
+<div class= "row show_container">
+   <div class="col-md-6 col-md-offset-3 show">
    <legend>Budgets:</legend>
         <ul class="users">
-            <li> <%= @budget.category %> </li>
-            <li> <%= @budget.amount %> </li>
-            <li> <%= "balance goes here" %> </li>
+            <li>Category: <%= @budget.category %> </li>
+            <li>Initial Balance: $<%= @budget.balance %> </li> 
+            <li>Current Balance: $<%= @budget.amount %>  </li>  
         </ul>
    </div>
    </div>
