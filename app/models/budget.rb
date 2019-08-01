@@ -1,8 +1,12 @@
 class Budget < ApplicationRecord
     has_many :receipts , dependent: :destroy
-    #has_many :users, through: :receipts
-    
-   # validates :category,:amount, presence: true
+    after_save :balance_setter
 
 
+private
+    def balance_setter
+        if !self.balance
+        self.update_attribute(:balance, self.amount)
+        end
+    end
 end
