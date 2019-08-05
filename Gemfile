@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 
 #use of pagination
-gem 'will_paginate'
+gem 'will_paginate','>=3.1.7' 
 #enables bootstrap for will_paginate
 gem 'bootstrap-will_paginate'
 # Use Capistrano for deployment

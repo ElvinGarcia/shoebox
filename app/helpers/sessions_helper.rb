@@ -1,6 +1,5 @@
 
 module SessionsHelper
-
     #add user to the current session
     def log_in(user)
         session[:user_id] = user.id
