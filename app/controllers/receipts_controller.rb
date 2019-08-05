@@ -4,12 +4,12 @@ class ReceiptsController < ApplicationController
 
 
     def index
-       @receipts = current_user.receipts.where.not(amount: !nil).paginate(page: params[:page], per_page:10)
+       @receipts ||= current_user.receipts.where.not(amount: !nil).paginate(page: params[:page], per_page:10)
     end
     
     def new
         @receipt = Receipt.new
-        @user = current_user
+        @user ||= current_user
         if @user.receipts.empty?
             navigated_location
             flash[:notice] ="A Budget Must Be Created Before Creating a Receipt"
@@ -33,7 +33,7 @@ class ReceiptsController < ApplicationController
     
 
     def edit
-        @user = current_user    
+        @user ||= current_user    
     end
     
     def update
@@ -61,7 +61,7 @@ class ReceiptsController < ApplicationController
     end
     
     def find_receipt
-        @receipt = current_user.receipts.find(params[:id])
+        @receipt ||= current_user.receipts.find(params[:id])
     end
 
 

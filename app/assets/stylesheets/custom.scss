@@ -57,10 +57,7 @@ textarea {
     }
   }
 
-  body { 
-     margin-top: 10vh;
-     padding: 10px 50px;
-    }
+  
     
     .index_container{
     .main_img{
@@ -69,29 +66,32 @@ textarea {
      }
     }
     
+    body {
+    position:relative;
+    height: 100vh;
+     top:5rem; 
+    //  margin-top: 10vh;
+     padding: 10px 50px;
+     
+    }
+    
     .main{
       position:relative;
       height:80vh;
       overflow: scroll;
-      display: flex;
-      flex-flow: row wrap ;
-      justify-content: space-around ;
-      align-items: flex-start;
-      align-content: space-between;
-      .posts{ flex: 1 1;}
-      .card{
-       float: left;
-       overflow: hidden;
-       width:300px;
-       height:200px;
-       margin: 1em;
-       padding: 1em;
-       border: solid silver 2px;  
-        .card-img{
-        display:inline-block;
-        border:black solid 2px;
-       }
-      }
+      top:8%;
+        .user_container{
+        display: flex;
+        justify-content: space-around;
+        min-height: 100%;
+         .user_info,.receipts_card,.posts_card,.action_menu{
+          flex: 1;
+          border:solid $gray-medium-light 2px;
+          padding: 1rem;
+            ul{list-style-type: none;}
+         }
+        }
+      
       .row, .form_container{
         position: relative;
         display:flex;
@@ -108,8 +108,9 @@ textarea {
           border-radius: 10px;
           }
         }
-    }
-  
+    }  // end of main
+
+
     .index_container{
       display: flex;
       flex-flow: row wrap;
@@ -131,7 +132,7 @@ textarea {
     margin: 0 auto;
     border:black solid 1px;
     border-radius: 12px;
-  /*flex container */
+    /*flex container */
     display: flex; 
     flex-flow: row wrap;
     justify-content: space-evenly; /*main axis */
@@ -159,12 +160,7 @@ textarea {
 }
 
 
-/* aside */
-.user-info{  
- border:solid $gray-medium-light;
- position: relative;
- float:right;
- }
+
 
 
 

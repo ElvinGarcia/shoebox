@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
       include PostsHelper
       include ApplicationHelper
       include UsersHelper
+      include ReceiptsHelper
 
 end

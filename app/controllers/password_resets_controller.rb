@@ -10,7 +10,7 @@ class PasswordResetsController < ApplicationController
     
     def create 
         #finds the user in the DB
-        user = User.find_by(email: params[:password_reset][:email])
+        user ||= User.find_by(email: params[:password_reset][:email])
         #if user is found
         if user 
             user.password_reset #generates user digest hash
