@@ -57,6 +57,7 @@ module SessionsHelper
         forget #undoes the creation of cookies creation
         session.delete(:user_id)
         current_user = nil
+        flash[:notice]="Your Session has Ended"
     end
 
     def delete_account(user)
