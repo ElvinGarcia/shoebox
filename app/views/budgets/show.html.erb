@@ -4,6 +4,10 @@
 <div class= "row show_container">
    <div class="col-md-6 col-md-offset-3 show">
    <legend>Budgets:</legend>
+   <h6> <%=link_to 'Add A New Budget', new_budget_path %> 
+        | | <%=link_to 'Edit the Current Budget', edit_budget_path(@budget) %>
+        | | <%=link_to 'Create A Receipt', new_user_receipt_path(current_user) %>
+     </h6>
         <ul class="users">
             <li>Category: <%= @budget.category %> </li>
             <li>Initial Balance: $<%= @budget.balance %> </li> 

@@ -1,24 +1,29 @@
 
-<div class="show-post">
-<h2><%= @post.title %></h2>
-<p > <%= @post.description %> 
- <% @post.images.each do |img| %>
-  <div class="img-box">
-     <%= image_tag img.variant(resize: "200x200") %>
-     <p class="small"> <%= link_to 'Download', rails_blob_path(img, disposition:"attachment") %> </p>
-     </div>
-     </p>
-  <% end %>
+   
  
-</div>
 
-<% if current_user? @user %>
-    <div class ="show-aside">
-        <ul class="small">
-            <h3>Action Menu</h3>
-            <li> <%= link_to  'Create Post', new_user_post_path(current_user) %></li>
-            <li> <%= link_to  'Edit Post', edit_user_post_path(current_user,@post) %></li>
-            <li> <%= link_to  'Delete  Post', user_post_path(current_user,@post), method: 'delete'  %></li>
+<div class= "row show_container">
+   <div class="col-md-6 col-md-offset-3 show">
+   <legend>Posts:</legend>
+   <% if current_user? @user %>
+      <h6> 
+            <%=link_to 'Add A New Post', new_user_post_path(current_user) %> 
+        | | <%=link_to 'Edit Post', edit_user_post_path(current_user,@post) %>
+        | | <%=link_to 'Delete  Post', user_post_path(current_user,@post), method: 'delete'%>
+    </h6>
+    <%end%>
+        <ul class="users">
+            <li>Title: <%= @post.title %> </li>
+            <li>Description: <%= @post.description %> </li> 
+            <li>Images:
+            <%@post.images.each do |img| %>
+            <div class="img-box">
+                <%= image_tag img.variant(resize: "200x200") %>
+                <p class="small"> <%= link_to 'Download', rails_blob_path(img, disposition:"attachment") %> </p>   
+            </div>
+                <%end%>
+            
+              </li>  
         </ul>
-    </div>
-<% end %>
+   </div>
+</div>   

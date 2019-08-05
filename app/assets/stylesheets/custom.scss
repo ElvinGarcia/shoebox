@@ -109,6 +109,17 @@ textarea {
         }
     }  // end of main
 
+    .users{
+        .img-box{
+      display: flex;
+      flex-flow: row wrap;
+       img{
+         margin:2px;
+         border:black solid 2px;
+       }
+      }
+    }
+
 
     .index_container{
       display: flex;
@@ -146,7 +157,7 @@ textarea {
         margin: 10px;
       }
     }
-  }
+  } /* end of footer */
  
 
 /* misc., not part of production */
@@ -179,37 +190,7 @@ input {
 }
 
 
-
- .show-post{
-   float:left;
-   margin: 5em 0 5em;
-   width: 75%;
-   height: 100%;
-   padding: 2em;
-   border: silver solid;
-    .img-box{
-      display:inline-block;   
-      border:black solid 1px;
-      margin-left:5px;
-      padding:1px;
-      img{
-        display:inline-block;
-        border:black solid;
-      }
-   }
- }
-
- .show-aside{   
-   float: right;
-   margin: 5em 0 5em;
-   padding:5px;
-   border: silver solid;
-   min-height: auto;
-   li{
-     display: block;
-   }
- }
-
+ 
  /* users list style */
   .users{
     list-style-type: none;

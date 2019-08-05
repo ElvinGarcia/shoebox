@@ -14,12 +14,13 @@
    </div>
 
 <div class="show-post">
-<p > 
+<p>
+ <%# binding.pry  %>
  <% @receipt.images.each do |img| %>
   <div class="img-box">
-     <%= image_tag img.variant(resize: "200x200") %>
+     <%= image_tag img.variant(resize: "200x200")  %>
      <p class="small"> <%= link_to 'Download', rails_blob_path(img, disposition:"attachment") %> </p>
      </div>
+     <% end %> 
      </p>
-  <% end %> 
 </div>

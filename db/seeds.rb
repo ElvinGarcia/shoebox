@@ -17,4 +17,11 @@
     user.posts.create(title: Faker::Book.unique.title, description: Faker::Quote.unique.most_interesting_man_in_the_world, date: Faker::Date.backward)  
 end
 
-User.create!(name: "admin", email: "admin@admin.com", password: "password", admin: true, activated: true, activated_at: Time.zone.now )
+# admin sample creation
+    admin = User.create!(name: "admin", email: "admin@admin.com", password: "password", admin: true, activated: true, activated_at: Time.zone.now )
+    admin.budgets.create(category:"Take Out",amount:"100",balance: "100")
+    admin.budgets.create(category:"Transportation",amount:"200",balance: "200")
+    admin.budgets.create(category:"Utilities",amount:"300",balance: "300")
+12.times do
+    admin.posts.create(title: Faker::Book.unique.title, description: Faker::Quote.unique.most_interesting_man_in_the_world, date: Faker::Date.backward)  
+end
