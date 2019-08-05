@@ -21,11 +21,12 @@ class UsersController < ApplicationController
 
   def show
     if logged_in?
-      @user = current_user
+      @user ||= current_user
     else
       flash[:alert] = 'You must be Logged in Order to View this Page'
       redirect_to login_path
     end
+    @receipts = current_user.receipts.paginate(page: params[:page], per_page:10).where.not(amount: !nil)
   end
 
   def index
