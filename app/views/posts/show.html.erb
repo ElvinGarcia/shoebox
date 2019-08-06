@@ -12,18 +12,19 @@
         | | <%=link_to 'Delete  Post', user_post_path(current_user,@post), method: 'delete'%>
     </h6>
     <%end%>
-        <ul class="users">
+        <ul class="description">
             <li>Title: <%= @post.title %> </li>
             <li>Description: <%= @post.description %> </li> 
-            <li>Images:
-            <%@post.images.each do |img| %>
-            <div class="img-box">
+        </ul>
+            <h6>Images:</h6> 
+            <div class="img-box"> 
+             <%@post.images.each do |img| %>
                 <%= image_tag img.variant(resize: "200x200") %>
                 <p class="small"> <%= link_to 'Download', rails_blob_path(img, disposition:"attachment") %> </p>   
-            </div>
                 <%end%>
-            
-              </li>  
-        </ul>
+            </div>         
    </div>
 </div>   
+
+
+ 

@@ -109,16 +109,19 @@ textarea {
         }
     }  // end of main
 
-    .users{
+    
         .img-box{
       display: flex;
       flex-flow: row wrap;
        img{
-         margin:2px;
+         margin:5px;
          border:black solid 2px;
        }
+       .small{
+         align-self: flex-end;
+       }
       }
-    }
+    
 
 
     .index_container{
@@ -170,10 +173,6 @@ textarea {
 }
 
 
-
-
-
-
 /* forms */
 legend {
     background-color: #000;
@@ -191,8 +190,8 @@ input {
 
 
  
- /* users list style */
-  .users{
+ /* users and list style */
+  .users, .description{
     list-style-type: none;
     margin:0;
     li{
@@ -205,6 +204,6 @@ input {
   
 
 
-.action-menu>ul{
+.action_menu>ul{
   list-style-type:none;
 }
