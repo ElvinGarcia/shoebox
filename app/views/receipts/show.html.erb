@@ -2,25 +2,24 @@
 
 <div class= "row show_container">
    <div class="col-md-6 col-md-offset-3 show">
-   <legend>Receipts:</legend>
-        <ul class="users">
-            <li>Content: <%= @receipt.content %> </li>
-            <li>Amount: <%= @receipt.amount %> </li>
-            <li>Budget: <%= link_to @receipt.budget.category, budget_path(@receipt.budget) %> </li>
-            <li>Budget Balance: $<%= @receipt.budget.amount %> </li>
-
-        </ul>
-   </div>
-   </div>
-
-<div class="show-post">
-<p>
- <%# binding.pry  %>
- <% @receipt.images.each do |img| %>
-  <div class="img-box">
-     <%= image_tag img.variant(resize: "200x200")  %>
-     <p class="small"> <%= link_to 'Download', rails_blob_path(img, disposition:"attachment") %> </p>
-     </div>
-     <% end %> 
-     </p>
+     <legend>Receipts:</legend>
+        <h6> 
+            <%=link_to 'Add A New Receipt', new_user_receipt_path(current_user) %> 
+            | | <%=link_to 'Edit Receipt', edit_user_receipt_path(current_user,@receipt) %>
+            | | <%=link_to 'Delete  Receipt', user_receipt_path(current_user,@receipt), method: 'delete'%>
+        </h6>
+            <ul class="description">
+                <li>Content: <%= @receipt.content %> </li>
+                <li>Amount: <%= @receipt.amount %> </li>
+                <li>Budget: <%= link_to @receipt.budget.category, budget_path(@receipt.budget) %> </li>
+                <li>Budget Balance: $<%= @receipt.budget.amount %> </li>
+            </ul>
+        
+        <div class="img-box">
+            <% @receipt.images.each do |img| %>
+            <%= image_tag img.variant(resize: "150x150") %>
+             <p class="small"> <%= link_to 'Download', rails_blob_path(img, disposition:"attachment") %> </p>
+            <%end%> 
+        </div>
+  </div>
 </div>
