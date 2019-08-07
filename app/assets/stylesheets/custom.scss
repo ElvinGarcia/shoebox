@@ -122,7 +122,10 @@ textarea {
        }
       }
     
-
+    .post_description{
+      max-height: 2.5em;
+      overflow:hidden;  
+    }
 
     .index_container{
       display: flex;
@@ -133,6 +136,11 @@ textarea {
         border: solid 2px;
         border-radius: 10px;
       }
+    }
+
+    .pagination{
+      margin-bottom:0;
+      margin-top:5px;
     }
 
   /* footer */
@@ -187,8 +195,6 @@ legend {
 input {
     margin: .4rem;
 }
-
-
  
  /* users and list style */
   .users, .description{
@@ -202,8 +208,6 @@ input {
   }
   
   
-
-
 .action_menu>ul{
   list-style-type:none;
 }

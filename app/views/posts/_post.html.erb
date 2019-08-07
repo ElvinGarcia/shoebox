@@ -1,14 +1,16 @@
 
 
   
-<div class="card">
-    <h3 class="card-title"> <%= link_to post.title, user_post_path(post.user_id, post.id) %> </h3>
-    <p class="card-text"> <%= post.description%> </p> 
-    <%if post.images.attached?  %>
-      <% post.images.each do |image| %>
-      <%= link_to image_tag(image.variant(resize: "100x100")),  user_post_path(post.user_id, post.id) , class: "card-img" %> 
-    <% end%>
-    <% end %>
-  </div>
+    <li>
+       <%=link_to post.title, user_post_path(post.user_id, post.id) %>
+     |  <div class="post_description"> <%=post.description%> </div>
+        <div class="img-box">
+       <%if post.images.attached?%>
+       <%post.images.each do |image|%>
+       <%=link_to image_tag(image.variant(resize: "100x100")),  user_post_path(post.user_id, post.id) , class: "card-img"%> 
+        <%end%>
+        </div>
+        <%end%>
+    </li>
 
 
