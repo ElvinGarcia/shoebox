@@ -21,8 +21,8 @@ class ReceiptsController < ApplicationController
         if Receipt.create!(receipt_strong_params)
         flash[:notice] ="The Receipt Was Succesfully Created"
         redirect_to user_receipts_path(current_user)
-       else
-        flash[:notice] = "something went wrong"
+        else
+          flash[:notice] = "something went wrong"
         redirect_to new_user_receipt_path(current_user)
         end
     end
