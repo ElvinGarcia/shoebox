@@ -1,12 +1,17 @@
 class Budget < ApplicationRecord
+    define_attribute_methods 
     has_many :receipts , dependent: :destroy
-    after_save :balance_setter
+    
 
 
-private
-    def balance_setter
-        if !self.balance
-        self.update_attribute(:balance, self.amount)
-        end
+
+    def widthdraw(diff)
+        self.amount -= diff
     end
+
+   def deposit(amount)
+       self.amount += amount
+   end
+   
+  
 end
