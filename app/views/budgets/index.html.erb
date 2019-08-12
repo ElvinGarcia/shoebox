@@ -4,8 +4,11 @@
          <div class="col-md-6 col-md-offset-3 index">
     <legend>Budgets</legend>
         <%= will_paginate %>
-        <h6> <%=link_to 'Add A New Budget', new_budget_path %> 
-            | | <%=link_to 'Submit a Receipt', new_user_receipt_path(current_user) %> </h6>
+        <h6>
+              <%=link_to 'Create A New Budget', new_budget_path %> 
+          | | <%=link_to 'Submit a Receipt', new_user_receipt_path(current_user) %> 
+          | | <%= link_to 'View all Receipts', user_receipts_path(current_user) %>
+        </h6>
           <ul class = "users"> <%= render @budgets %> </ul>
         <%= will_paginate %>                            
     </div>

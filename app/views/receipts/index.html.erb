@@ -6,7 +6,8 @@
         <%= will_paginate %>
       <h6> 
       <%=link_to 'Create A Receipt', new_user_receipt_path(current_user) %> 
-    | | <%=link_to 'Create A Budget', new_budget_path %>
+        | | <%=link_to 'Create A Budget', new_budget_path %>
+        | | <%=link_to 'View All Budgets', budgets_path,class:"",title:"Budgets"%> </li>
      </h6>
         <ul class = "users"> <%= render @receipts %> </ul>
         <%= will_paginate %>                            
