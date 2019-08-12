@@ -6,6 +6,7 @@ class Budget < ApplicationRecord
 
 
     def widthdraw(diff)
+        return if !diff
         self.amount -= diff
     end
 
