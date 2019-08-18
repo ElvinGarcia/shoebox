@@ -5,13 +5,9 @@ class Budget < ApplicationRecord
 
 
 
-    def widthdraw(diff)
-        return if !diff
-        self.amount -= diff
-    end
 
-   def deposit(amount)
-       self.amount += amount
+   def debits_credits(diff)
+    self.amount = self.amount + diff
    end
    
   
