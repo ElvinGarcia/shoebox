@@ -1,7 +1,12 @@
 
 
 <li>
-<%= link_to receipt.content, user_receipt_path(current_user,receipt) %> 
+
+<% if receipt.content == nil %>
+  <%= link_to "Content Not Available" , user_receipt_path(current_user,receipt) %> 
+<% else %>
+  <%= link_to receipt.content , user_receipt_path(current_user,receipt) %> 
+<% end %>
 | <%= link_to " #{receipt.budget.category} budget ($#{receipt.budget.amount})", budget_path(receipt.budget) %>
 | <%= link_to 'delete', user_receipt_path(current_user,receipt ), method: :delete, data:{confirm: "Are You Sure ?"} %> 
 | <%= link_to 'edit', edit_user_receipt_path(current_user,receipt) %>
