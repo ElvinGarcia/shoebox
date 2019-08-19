@@ -4,7 +4,7 @@ class ReceiptsController < ApplicationController
 
 
     def index
-       @receipts ||= current_user.receipts.paginate(page: params[:page], per_page:10)
+       @receipts ||= current_user.receipts.where("amount > 0").paginate(page: params[:page], per_page:10)
     end
     
     def new

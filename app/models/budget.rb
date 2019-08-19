@@ -5,8 +5,6 @@ class Budget < ApplicationRecord
     validates :category, presence:{uniqueness: true , message:"that %{attribute} has been already taken"}
     
     
-
-
 private
 
    def debits_credits(diff)
