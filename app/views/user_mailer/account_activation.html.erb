@@ -3,6 +3,9 @@
 <p>
   <%= @greeting %>, <%= @user.name %>
   <p>
-   <%= link_to 'Activate  your account', edit_activation_url(@user.activation_token, email:@user.email) %>
+   <%= link_to 'Click here to Activate your account', edit_activation_url(@user.activation_token, email:@user.email) %>
+   </p>
+   <p>
+      <%= edit_activation_url(@user.activation_token, email: @user.email) %>
    </p>
 </p>
