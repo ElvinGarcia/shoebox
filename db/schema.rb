@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_042302) do
+ActiveRecord::Schema.define(version: 2019_08_19_043750) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_06_16_042302) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "category"
-    t.integer "amount"
-    t.integer "balance"
+    t.integer "amount", default: 0
+    t.integer "balance", default: 0
   end
 
   create_table "posts", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_06_16_042302) do
     t.text "content"
     t.integer "user_id"
     t.integer "budget_id"
-    t.integer "amount"
+    t.integer "amount", default: 0
     t.index ["budget_id"], name: "index_receipts_on_budget_id"
     t.index ["user_id"], name: "index_receipts_on_user_id"
   end
