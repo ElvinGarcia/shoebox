@@ -4,9 +4,10 @@ class Receipt < ApplicationRecord
     has_many_attached :images, dependent: :destroy    
     belongs_to :user
     belongs_to :budget
-    validates :content, :amount, presence: true
+
+    validates :content, presence: true
     after_validation :edited, on: [:update, :create]
-    #after_commit :set_for_deletion, on: :destroy
+    after_destroy :deleted_record
 
   
 private 
@@ -18,5 +19,11 @@ private
        budget.save!
   end  
     
+  def deleted_record
+    budget.debits_credits(self.amount_was)
+    budget.save!
+  end
+  
+
 
 end
