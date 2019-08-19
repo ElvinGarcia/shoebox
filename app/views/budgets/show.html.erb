@@ -6,6 +6,7 @@
    <legend>Budgets:</legend>
    <h6> <%=link_to 'Add A New Budget', new_budget_path %> 
         | | <%=link_to 'Edit the Current Budget', edit_budget_path(@budget) %>
+        | | <%=link_to 'Delete the Current Budget', budget_path(@budget), method: 'delete', data:{confirm: "Are You Sure ?"} %>
         | | <%=link_to 'Create A Receipt', new_user_receipt_path(current_user) %>
      </h6>
         <ul class="description">

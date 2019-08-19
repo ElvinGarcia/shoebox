@@ -11,7 +11,7 @@ class BudgetsController < ApplicationController
     end
    
     def create
-        current_user.budgets.create!(budget_strong_param) #refractor opportunity could be done at model level
+        current_user.budgets.create!(budget_strong_param) 
         flash[:notice] ="The Budget Was Succesfully Created"
         if session[:before_login]
             redirect_back_to_intent(current_user)

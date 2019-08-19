@@ -40,6 +40,7 @@ module SessionsHelper
     !current_user.nil?
     end
 
+    #sets a signed cookie to store the user id and token when chosen not to be forgotten
     def remember(user)
         user.remember
         cookies.permanent.signed[:user_id]= user.id

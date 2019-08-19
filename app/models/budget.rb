@@ -7,7 +7,7 @@ class Budget < ApplicationRecord
     
 
 
-
+private
 
    def debits_credits(diff)
     self.amount = self.amount + diff
