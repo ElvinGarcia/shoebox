@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.create(user_strong_params)
     if @user.save
       @user.send_activation_mail
-      flash[:info] = "To Complete The Activation Please Check Your Email"
+      flash[:notice] = "Please Check Your Email To Complete The Activation"
       redirect_to root_url
     else
       render :new
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_strong_params)
-      flash[:success] = "Profile updated"
+      flash[:notice] = "Profile updated"
       redirect_to @user
     else
       render 'edit'
