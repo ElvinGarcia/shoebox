@@ -11,12 +11,16 @@ class BudgetsController < ApplicationController
     end
    
     def create
-        current_user.budgets.create!(budget_strong_param) 
-        flash[:notice] ="The Budget Was Succesfully Created"
-        if session[:before_login]
-            redirect_back_to_intent(current_user)
+        @budget  = current_user.budgets.build(budget_strong_param)
+        if @budget.save
+            flash[:notice] ="The Budget Was Succesfully Created"
+            if session[:before_login]
+                redirect_back_to_intent(current_user)
+            else
+                redirect_to @budget
+            end
         else
-        redirect_to budgets_path
+          render 'new'
         end
     end
 
@@ -49,7 +53,7 @@ class BudgetsController < ApplicationController
     private
     
     def find_the_budget
-        @budget = current_user.budgets.find(params[:id])
+        @budget = Budget.find(params[:id])
     end
     
     def budget_strong_param
