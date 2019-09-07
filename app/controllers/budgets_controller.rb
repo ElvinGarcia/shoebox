@@ -11,8 +11,8 @@ class BudgetsController < ApplicationController
     end
    
     def create
-        @budget  = current_user.budgets.build(budget_strong_param)
-        if @budget.save
+        @budget  = current_user.budgets.create(budget_strong_param)
+        if @budget.persisted?
             flash[:notice] ="The Budget Was Succesfully Created"
             if session[:before_login]
                 redirect_back_to_intent(current_user)
@@ -20,6 +20,7 @@ class BudgetsController < ApplicationController
                 redirect_to @budget
             end
         else
+        byebug
           render 'new'
         end
     end

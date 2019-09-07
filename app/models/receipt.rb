@@ -8,6 +8,12 @@ class Receipt < ApplicationRecord
     after_validation :edited, on: [:update, :create]
     after_destroy :deleted_record
 
+
+
+    def self.most_expensive
+      order('amount desc').limit(3)
+    end
+
   
 private 
 

@@ -2,6 +2,10 @@ class ReceiptsController < ApplicationController
     before_action :find_receipt, only: [:edit,:update,:show,:destroy]
     
 
+    def expensive
+        @receipts = Receipt.most_expensive.paginate(page: params[:page], per_page: 3,:total_entries => 3)
+       render 'index' 
+    end
 
     def index
        @receipts ||= current_user.receipts.where("amount > 0").paginate(page: params[:page], per_page:10)

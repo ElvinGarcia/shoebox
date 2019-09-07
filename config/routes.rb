@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :receipts
     resources :posts
   end
+  get '/most_expensive_receipts', to:"receipts#expensive"
   
   resources :budgets
   
