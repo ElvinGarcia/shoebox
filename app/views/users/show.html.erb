@@ -1,0 +1,38 @@
+<div class="user_container">
+
+  <div class="action_menu">
+    <h3>Action Menu </h3>
+    <ul>
+    <li>
+    <%= embedded_svg("svg/noun_Create_Post_214735") %>
+    <%= link_to 'Create a New Post',new_user_post_path(current_user) %> 
+    </li>
+    <br>
+    <li>
+    <%= embedded_svg("svg/noun_archive_full_1422037") %>
+    <%= link_to 'View All Posts', user_posts_path(current_user) %>
+    </li>
+    <br>
+    <li>
+    <%= embedded_svg("svg/noun_budget_2287074") %>
+    <%=link_to 'Create A Budget', new_budget_path,class:"",title:"Create A Budget" %> 
+    </li>
+    
+    <li> 
+    <%= embedded_svg("svg/noun_Create_Post_214735") %>
+    <%=link_to 'View All Budgets', budgets_path,class:"",title:"Budgets"%> </li>
+    <br>
+    <li> 
+    <%= embedded_svg("svg/noun_receipt_237732") %>
+    <%=link_to 'Submit A Receipt', new_user_receipt_path(current_user),class:"icons",title:"Submit A Receipt" %> </li>
+    <li>
+    <%= embedded_svg("svg/noun_receipts_1653231") %>
+    <%=link_to 'View All Receipts', user_receipts_path(current_user),class:"",title:"Receipts" %> </li>
+    <br>
+    <li>
+    <%= embedded_svg("svg/noun_Delete_806712") %>
+    <%= link_to ' Delete Account', user_path(current_user), method: "delete", data:{ confirm: "are you sure ?"},title:"Delete The Account" %>
+    </li>  
+
+    </ul>
+  </div>
