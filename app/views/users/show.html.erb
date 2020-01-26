@@ -36,3 +36,34 @@
 
     </ul>
   </div>
+
+    <% if @user.posts.any? %>
+    <div class="posts_card">    
+    <h3>Posts :</h3>
+    <%= render partial: 'posts/post', collection: @user.posts %>
+    </div>
+  <% end %>
+      
+  
+<div class="receipts_card" >
+ <h3>Receipts:</h3>
+   <%= will_paginate @receipts %>
+    <%= render  partial: "receipts/receipt", collection: @receipts, as: :receipt %>
+   <%= will_paginate @receipts %>
+</div>    
+    
+    
+
+
+  <div class="column user_info">
+    <aside class="col-md-4">
+    <h3>Profile information: </h3>
+      <ul>
+      <li>Name:  <%=current_user.name%>  </li>
+      <li>Email: <%=current_user.email%></li>
+      <li>admin?: <%=current_user.admin%></li>
+      </ul>
+    </aside>
+  </div>
+
+</div>
