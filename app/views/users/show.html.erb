@@ -2,13 +2,7 @@
 <div class="user_container">
 
   <div class="action_menu">
-    <h3>Action Menu </h3>
-    <ul>
-    <li>
-    <%= embedded_svg("svg/noun_Create_Post_214735") %>
-    <%= link_to 'Create a New Post',new_user_post_path(current_user) %> 
-    </li>
-    <br>
+  
     <li>
     <%= embedded_svg("svg/noun_archive_full_1422037") %>
     <%= link_to 'View All Posts', user_posts_path(current_user) %>
