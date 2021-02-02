@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.6.5'
 #github Oauth
 gem 'omniauth'
 gem 'omniauth-github'
@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 
 #use of pagination
-gem 'will_paginate','>=3.1.7' 
+gem 'will_paginate','>=3.1.7'
 #enables bootstrap for will_paginate
 gem 'bootstrap-will_paginate'
 # Use Capistrano for deployment
