@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# preview
+
+![project preview](preview.png "Preview")
